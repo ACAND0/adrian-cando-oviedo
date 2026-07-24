@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Adrián Cando Oviedo · Documentum Senior Consultant",
     description:
-      "Portfolio profesional de Adrián Cando Oviedo, consultor senior especializado en OpenText Documentum, Java, DFCs, migraciones ECM y automatización.",
+      "Perfil profesional de Adrián Cando Oviedo: OpenText Documentum, Java, JavaFX, DFCs, migraciones ECM y automatización.",
     keywords: [
       "Adrián Cando Oviedo",
       "Documentum Senior Consultant",
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Adrián Cando Oviedo · Documentum Senior Consultant",
       description:
-        "Tecnología documental con visión de negocio. Consultoría, migraciones y desarrollo sobre OpenText Documentum.",
+        "Tecnología documental con visión de negocio. Documentum, Java, JavaFX, DFCs y migraciones ECM.",
       type: "website",
       locale: "es_ES",
       images: [
@@ -53,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Adrián Cando Oviedo · Documentum Senior Consultant",
       description:
-        "Consultoría, migraciones y desarrollo sobre OpenText Documentum.",
+        "Documentum, Java, JavaFX, DFCs, migraciones ECM y automatización.",
       images: [ogImage],
     },
   };

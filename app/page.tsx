@@ -1,6 +1,7 @@
 const skills = [
   "OpenText Documentum",
   "Java / DFCs",
+  "JavaFX",
   "D2 / D2-Config",
   "Migraciones ECM",
   "SAP HANA / ABAP",
@@ -124,15 +125,17 @@ export default function Home() {
         </a>
         <nav aria-label="Navegación principal">
           <a href="#sobre">Sobre mí</a>
+          <a href="#soluciones">Soluciones</a>
           <a href="#experiencia">Experiencia</a>
           <a href="#formacion">Formación</a>
-          <a href="#contacto">Contacto</a>
         </nav>
         <a
           className="header-cta"
-          href="mailto:adriancando1617@gmail.com"
+          href="https://www.linkedin.com/in/adrian-cando-oviedo"
+          target="_blank"
+          rel="noreferrer"
         >
-          Hablemos <ArrowUpRight />
+          LinkedIn <ArrowUpRight />
         </a>
       </header>
 
@@ -158,8 +161,8 @@ export default function Home() {
             <a className="button button-primary" href="#experiencia">
               Ver experiencia <ArrowUpRight />
             </a>
-            <a className="button button-secondary" href="#contacto">
-              Contactar
+            <a className="button button-secondary" href="#soluciones">
+              Ver especialización
             </a>
           </div>
         </div>
@@ -218,6 +221,12 @@ export default function Home() {
               completas, integraciones Java, análisis de rendimiento y
               automatización de procesos.
             </p>
+            <p>
+              También he diseñado <strong>aplicaciones personalizadas con JavaFX
+              y DFCs</strong> para interactuar con Documentum y facilitar el
+              trabajo interno sobre repositorios, procesos y objetos
+              documentales.
+            </p>
             <a
               className="text-link"
               href="https://www.linkedin.com/in/adrian-cando-oviedo"
@@ -256,6 +265,46 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        <article className="focus-feature" id="soluciones">
+          <div className="focus-copy">
+            <p className="section-kicker">// DESARROLLO ESPECIALIZADO</p>
+            <h3>Aplicaciones internas a medida</h3>
+            <p>
+              Desarrollo herramientas de escritorio personalizadas con
+              <strong> JavaFX</strong> y <strong>Documentum DFCs</strong>,
+              diseñadas para interactuar directamente con el repositorio y
+              adaptar el trabajo interno a las necesidades reales de cada
+              proceso.
+            </p>
+            <div className="focus-points">
+              <span>Interfaces de escritorio especializadas</span>
+              <span>Integración directa con Documentum</span>
+              <span>Operativa interna adaptada al proceso</span>
+            </div>
+          </div>
+          <div className="code-panel" aria-label="Representación de una aplicación JavaFX conectada a Documentum">
+            <div className="code-panel-bar">
+              <i />
+              <i />
+              <i />
+              <span>documentum-tool.java</span>
+            </div>
+            <div className="code-panel-body" aria-hidden="true">
+              <p><b>01</b><span>public class</span> DocumentumWorkspace {"{"}</p>
+              <p><b>02</b>&nbsp;&nbsp;<span>private</span> IDfSession session;</p>
+              <p><b>03</b>&nbsp;</p>
+              <p><b>04</b>&nbsp;&nbsp;<em>// JavaFX + DFCs</em></p>
+              <p><b>05</b>&nbsp;&nbsp;repository.connect();</p>
+              <p><b>06</b>&nbsp;&nbsp;workflow.execute();</p>
+              <p><b>07</b>{"}"}</p>
+            </div>
+            <div className="code-panel-status">
+              <span>● DOCUMENTUM CONNECTED</span>
+              <span>JAVA FX</span>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section className="section experience-section" id="experiencia">
@@ -359,18 +408,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact-section" id="contacto">
+      <section className="contact-section" id="perfil">
         <div className="contact-orbit" aria-hidden="true" />
-        <p className="section-kicker">// CONECTEMOS</p>
+        <p className="section-kicker">// PERFIL PROFESIONAL</p>
         <h2>
-          ¿Hablamos de tu
+          Tecnología, criterio
           <br />
-          próximo <em>reto?</em>
+          y <em>evolución.</em>
         </h2>
         <p className="contact-copy">
-          Si necesitas modernizar una plataforma documental, plantear una
-          migración o reforzar un equipo técnico, estaré encantado de conocer el
-          contexto.
+          Esta web recoge una muestra de mi recorrido, mi especialización y la
+          forma en la que trabajo con plataformas documentales, desarrollo Java
+          y automatización de procesos empresariales.
         </p>
         <a className="contact-email" href="mailto:adriancando1617@gmail.com">
           adriancando1617@gmail.com <ArrowUpRight />
