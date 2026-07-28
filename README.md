@@ -6,7 +6,7 @@ Web estática sin framework ni proceso de compilación.
 
 - `index.html`: contenido y estructura.
 - `css/styles.css`: diseño responsive.
-- `js/main.js`: interacciones y efectos con jQuery.
+- `js/main.js`: interacciones, contadores y efectos con JavaScript nativo.
 - `assets/og.png`: imagen para compartir la web.
 
 Para verla, abre `index.html` en un navegador. Algunas políticas de seguridad del
