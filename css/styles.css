@@ -816,7 +816,7 @@ h2 {
 }
 
 .focus-copy > p + p {
-  margin-top: 20px;
+  margin-top: clamp(24px, 1.4vw, 32px);
 }
 
 .focus-copy .focus-business {
