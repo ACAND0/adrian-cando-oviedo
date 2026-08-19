@@ -819,6 +819,19 @@ h2 {
   margin-top: 20px;
 }
 
+.focus-copy .focus-business {
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.16), rgba(168, 85, 247, 0.035));
+  border: 1px solid rgba(216, 180, 254, 0.2);
+  color: #eadff2;
+  font-size: 17px;
+  line-height: 1.65;
+  padding: 18px 20px;
+}
+
+.focus-business strong {
+  color: var(--cyan);
+}
+
 .focus-copy .focus-emphasis {
   border-left: 2px solid var(--blue);
   color: #eadff2;
