@@ -815,8 +815,52 @@ h2 {
   margin: 0;
 }
 
+.focus-copy > p + p {
+  margin-top: 20px;
+}
+
+.focus-copy .focus-emphasis {
+  border-left: 2px solid var(--blue);
+  color: #eadff2;
+  padding: 4px 0 4px 20px;
+}
+
 .focus-copy strong {
   color: var(--text);
+}
+
+.focus-value {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 34px;
+}
+
+.focus-value > div {
+  display: grid;
+  gap: 11px;
+  min-width: 0;
+  padding: 20px 16px;
+}
+
+.focus-value > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.focus-value b {
+  color: var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.focus-value span {
+  color: #d9c6e4;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  line-height: 1.55;
+  text-transform: uppercase;
 }
 
 .focus-points {
@@ -1599,6 +1643,20 @@ footer > a:last-child {
 
   .focus-points span {
     line-height: 1.5;
+  }
+
+  .focus-value {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-value > div {
+    grid-template-columns: 28px 1fr;
+    padding: 16px 4px;
+  }
+
+  .focus-value > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
   .code-panel-body {
