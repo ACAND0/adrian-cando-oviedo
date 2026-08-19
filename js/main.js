@@ -96,8 +96,16 @@
     if (countersStarted) return;
     countersStarted = true;
 
-    document.querySelectorAll("[data-count]").forEach(function (counter, index) {
-      const target = Number(counter.dataset.count);
+    document.querySelectorAll("[data-count], [data-experience-start]").forEach(function (counter, index) {
+      let target = Number(counter.dataset.count);
+      if (counter.dataset.experienceStart) {
+        const startParts = counter.dataset.experienceStart.split("-").map(Number);
+        const now = new Date();
+        target = now.getFullYear() - startParts[0];
+        if (now.getMonth() + 1 < startParts[1]) target -= 1;
+        target = Math.max(target, 0);
+        counter.setAttribute("aria-label", target + " años de experiencia");
+      }
       const suffix = counter.dataset.suffix || "";
 
       if (reducedMotion) {
