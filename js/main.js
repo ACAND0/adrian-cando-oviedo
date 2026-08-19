@@ -168,8 +168,11 @@
     const next = carousel.querySelector("[data-carousel-next]");
     const dots = Array.from(carousel.querySelectorAll("[data-carousel-dot]"));
     const status = carousel.querySelector(".app-carousel-status span");
+    const totalStatus = carousel.querySelector("[data-carousel-total]");
     let current = 0;
     let touchStartX = 0;
+
+    totalStatus.textContent = String(slides.length).padStart(2, "0");
 
     function showSlide(index) {
       current = (index + slides.length) % slides.length;
