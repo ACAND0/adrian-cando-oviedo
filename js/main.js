@@ -153,6 +153,54 @@
     });
   }
 
+  document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
+    const track = carousel.querySelector(".app-carousel-track");
+    const slides = Array.from(carousel.querySelectorAll(".app-slide"));
+    const previous = carousel.querySelector("[data-carousel-prev]");
+    const next = carousel.querySelector("[data-carousel-next]");
+    const dots = Array.from(carousel.querySelectorAll("[data-carousel-dot]"));
+    const status = carousel.querySelector(".app-carousel-status span");
+    let current = 0;
+    let touchStartX = 0;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = "translate3d(" + (-current * 100) + "%,0,0)";
+      slides.forEach(function (slide, slideIndex) {
+        const active = slideIndex === current;
+        slide.setAttribute("aria-hidden", String(!active));
+        slide.querySelectorAll("a, button").forEach(function (control) {
+          control.tabIndex = active ? 0 : -1;
+        });
+      });
+      dots.forEach(function (dot, dotIndex) {
+        const active = dotIndex === current;
+        dot.classList.toggle("is-active", active);
+        dot.setAttribute("aria-selected", String(active));
+      });
+      status.textContent = String(current + 1).padStart(2, "0");
+    }
+
+    previous.addEventListener("click", function () { showSlide(current - 1); });
+    next.addEventListener("click", function () { showSlide(current + 1); });
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () { showSlide(Number(dot.dataset.carouselDot)); });
+    });
+    carousel.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") showSlide(current - 1);
+      if (event.key === "ArrowRight") showSlide(current + 1);
+    });
+    carousel.addEventListener("touchstart", function (event) {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener("touchend", function (event) {
+      const distance = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(distance) > 45) showSlide(current + (distance < 0 ? 1 : -1));
+    }, { passive: true });
+
+    showSlide(0);
+  });
+
   window.addEventListener("scroll", requestScrollUpdate, { passive: true });
   window.addEventListener("resize", function () {
     if (window.innerWidth > 980) closeMenu();
