@@ -212,6 +212,11 @@
     showSlide(0);
   });
 
+  document.querySelectorAll(".app-image-frame img").forEach(function (image) {
+    image.addEventListener("contextmenu", function (event) { event.preventDefault(); });
+    image.addEventListener("dragstart", function (event) { event.preventDefault(); });
+  });
+
   window.addEventListener("scroll", requestScrollUpdate, { passive: true });
   window.addEventListener("resize", function () {
     if (window.innerWidth > 980) closeMenu();
