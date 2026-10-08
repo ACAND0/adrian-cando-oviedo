@@ -7,7 +7,7 @@
   --on-accent: #fffdf7; --accent-soft: #e8dfcf;
   --heading-font: Georgia, "Times New Roman", serif;
 }
-:root, :root[data-theme="tech"] {
+:root[data-theme="tech"] {
   color-scheme: dark;
   --ink: #0b1220; --ink-soft: #101c2c; --panel: #152438;
   --text: #edf5ff; --muted: #afbed0; --line: #3e536b;
@@ -15,7 +15,7 @@
   --on-accent: #0b1220; --accent-soft: #18394a;
   --heading-font: "Inter", Arial, sans-serif;
 }
-:root[data-theme="corporate"] {
+:root, :root[data-theme="corporate"] {
   color-scheme: light;
   --ink: #ffffff; --ink-soft: #f3f6f9; --panel: #ffffff;
   --text: #243448; --muted: #526276; --line: #cbd4df;

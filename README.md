@@ -15,8 +15,8 @@ navegador funcionan mejor sirviendo la carpeta con un servidor HTTP local sencil
 
 ## Temas visuales
 
-El botón «Cambiar tema» ofrece Editorial profesional, Tech oscuro (predeterminado),
-Minimalismo corporativo y Portfolio creativo sobre un único contenido HTML.
+El botón «Cambiar tema» ofrece Editorial profesional, Tech oscuro,
+Minimalismo corporativo (predeterminado) y Portfolio creativo sobre un único contenido HTML.
 Los estilos están en `css/themes.css`; `js/theme-init.js` restaura la preferencia
 antes de pintar la página y `js/theme-picker.js` gestiona el selector.
 La elección se guarda en `localStorage` con la clave `portfolio-theme` y se
@@ -25,5 +25,5 @@ el diseño durante la sesión y se anuncia que no se ha podido guardar.
 
 El selector admite Tab, flechas, Espacio y Escape, indica el estado expandido y
 mantiene un foco visible. Respeta la preferencia de movimiento reducido.
-Sin JavaScript se muestra el contenido con el tema Tech oscuro.
+Sin JavaScript se muestra el contenido con el tema Minimalismo corporativo.
 Portfolio creativo conserva el diseño morado oscuro original de la web.

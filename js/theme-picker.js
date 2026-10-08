@@ -53,7 +53,7 @@
   });
   window.addEventListener("storage", function (event) {
     if (event.key !== "portfolio-theme") return;
-    const theme = event.newValue || "tech";
+    const theme = event.newValue || "corporate";
     if (!radios.some(function (radio) { return radio.value === theme; })) return;
     apply(theme);
     sync(theme);

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   const themes = ["editorial", "tech", "corporate", "creative"];
-  let theme = "tech";
+  let theme = "corporate";
   try {
     const saved = localStorage.getItem("portfolio-theme");
     if (themes.includes(saved)) theme = saved;
