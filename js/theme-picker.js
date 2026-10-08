@@ -7,7 +7,7 @@
   const status = picker.querySelector("[role=status]");
   function apply(theme) {
     document.documentElement.dataset.theme = theme;
-    const colors = { editorial: "#f8f5ed", tech: "#0b1220", corporate: "#ffffff", creative: "#fff8f1" };
+    const colors = { editorial: "#f8f5ed", tech: "#0b1220", corporate: "#ffffff", creative: "#07030d" };
     document.querySelector('meta[name="theme-color"]').content = colors[theme];
   }
   function sync(theme) {
@@ -53,7 +53,7 @@
   });
   window.addEventListener("storage", function (event) {
     if (event.key !== "portfolio-theme") return;
-    const theme = event.newValue || "editorial";
+    const theme = event.newValue || "tech";
     if (!radios.some(function (radio) { return radio.value === theme; })) return;
     apply(theme);
     sync(theme);

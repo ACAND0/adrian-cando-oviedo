@@ -1,5 +1,5 @@
 /* Shared appearance tokens; all themes use the same document and content. */
-:root, :root[data-theme="editorial"] {
+:root[data-theme="editorial"] {
   color-scheme: light;
   --ink: #f8f5ed; --ink-soft: #f0ebe0; --panel: #fffdf7;
   --text: #292720; --muted: #615b50; --line: #d4cdc0;
@@ -7,7 +7,7 @@
   --on-accent: #fffdf7; --accent-soft: #e8dfcf;
   --heading-font: Georgia, "Times New Roman", serif;
 }
-:root[data-theme="tech"] {
+:root, :root[data-theme="tech"] {
   color-scheme: dark;
   --ink: #0b1220; --ink-soft: #101c2c; --panel: #152438;
   --text: #edf5ff; --muted: #afbed0; --line: #3e536b;
@@ -23,45 +23,45 @@
   --on-accent: #ffffff; --accent-soft: #e8eef5;
   --heading-font: "Inter", Arial, sans-serif;
 }
+/* Original purple design from styles.css, preserved for the creative theme. */
 :root[data-theme="creative"] {
-  color-scheme: light;
-  --ink: #fff8f1; --ink-soft: #f3eafa; --panel: #ffffff;
-  --text: #29173e; --muted: #675372; --line: #cdbada;
-  --blue: #7130b0; --cyan: #9a2850; --lime: #40653d;
-  --on-accent: #ffffff; --accent-soft: #ead9fa;
+  color-scheme: dark;
+  --ink: #07030d; --ink-soft: #100619; --panel: #180a24;
+  --text: #fbf7ff; --muted: #ad9aba; --line: rgba(216, 180, 254, 0.18);
+  --blue: #a855f7; --cyan: #f0abfc; --lime: #c4b5fd;
+  --on-accent: #07030d; --accent-soft: #2c123f;
   --heading-font: "Inter", Arial, sans-serif;
 }
-body { background: var(--ink); }
-::selection { background: var(--blue); color: var(--on-accent); }
-.site-header, .site-header.is-scrolled, .site-header nav { background: var(--ink); }
 .site-header { grid-template-columns: auto 1fr auto auto; gap: 24px; }
 .site-header nav { justify-self: center; }
-.site-header.is-scrolled { box-shadow: 0 8px 28px #0000000d; }
-h1, h2, .focus-copy h3 { font-family: var(--heading-font); }
-.about, .education-section { background: var(--ink-soft); }
-.experience-section { background: var(--ink); }
-.contact-section { background: var(--ink-soft); }
-.button-primary, .profile-stats { color: var(--on-accent); }
-.button-primary:hover, .button-primary:focus-visible,
-.app-carousel-buttons button:hover, .app-carousel-buttons button:focus-visible { color: var(--on-accent); }
-.skills span, .tag-list span, .certifications li, .focus-value span { color: var(--text); }
-.focus-copy .focus-business, .focus-copy .focus-emphasis,
-.focus-points span, .app-slide figcaption p, .app-showcase-note { color: var(--muted); }
-.focus-feature, .app-carousel { background: var(--panel); border-color: var(--line); }
-.focus-feature.is-visible, .focus-carousel { box-shadow: 0 20px 50px #0000000d; }
-.focus-copy .focus-business { background: var(--accent-soft); border-color: var(--line); }
-.profile-frame { background: var(--accent-soft); animation: none; }
-.profile-code { -webkit-text-stroke-color: var(--blue); }
-.profile-code::after { color: var(--accent-soft); }
-.orbit, .contact-orbit, .contact-orbit::before, .contact-orbit::after { border-color: var(--line); }
-.hero::before { background: var(--blue); opacity: .08; }
-.hero-grid { background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); opacity: .25; }
-.cursor-glow { background: radial-gradient(circle, var(--accent-soft), transparent 68%); opacity: .45; }
-.timeline-item:hover { background: var(--accent-soft); }
-.app-carousel-buttons button { border-color: var(--line); }
-.app-carousel-dots button { background: var(--muted); }
-.app-image-frame::after { background: #00000008; }
-.page-progress span, .focus-feature::before { box-shadow: none; }
+:where(:root:not([data-theme="creative"])) body { background: var(--ink); }
+:where(:root:not([data-theme="creative"])) ::selection { background: var(--blue); color: var(--on-accent); }
+:where(:root:not([data-theme="creative"])) .site-header, :where(:root:not([data-theme="creative"])) .site-header.is-scrolled, :where(:root:not([data-theme="creative"])) .site-header nav { background: var(--ink); }
+:where(:root:not([data-theme="creative"])) .site-header.is-scrolled { box-shadow: 0 8px 28px #0000000d; }
+:where(:root:not([data-theme="creative"])) h1, :where(:root:not([data-theme="creative"])) h2, :where(:root:not([data-theme="creative"])) .focus-copy h3 { font-family: var(--heading-font); }
+:where(:root:not([data-theme="creative"])) .about, :where(:root:not([data-theme="creative"])) .education-section { background: var(--ink-soft); }
+:where(:root:not([data-theme="creative"])) .experience-section { background: var(--ink); }
+:where(:root:not([data-theme="creative"])) .contact-section { background: var(--ink-soft); }
+:where(:root:not([data-theme="creative"])) .button-primary, :where(:root:not([data-theme="creative"])) .profile-stats { color: var(--on-accent); }
+:where(:root:not([data-theme="creative"])) .button-primary:hover, :where(:root:not([data-theme="creative"])) .button-primary:focus-visible, :where(:root:not([data-theme="creative"])) .app-carousel-buttons button:hover, :where(:root:not([data-theme="creative"])) .app-carousel-buttons button:focus-visible { color: var(--on-accent); }
+:where(:root:not([data-theme="creative"])) .skills span, :where(:root:not([data-theme="creative"])) .tag-list span, :where(:root:not([data-theme="creative"])) .certifications li, :where(:root:not([data-theme="creative"])) .focus-value span { color: var(--text); }
+:where(:root:not([data-theme="creative"])) .focus-copy .focus-business, :where(:root:not([data-theme="creative"])) .focus-copy .focus-emphasis, :where(:root:not([data-theme="creative"])) .focus-points span, :where(:root:not([data-theme="creative"])) .app-slide figcaption p, :where(:root:not([data-theme="creative"])) .app-showcase-note { color: var(--muted); }
+:where(:root:not([data-theme="creative"])) .focus-feature, :where(:root:not([data-theme="creative"])) .app-carousel { background: var(--panel); border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .focus-feature.is-visible, :where(:root:not([data-theme="creative"])) .focus-carousel { box-shadow: 0 20px 50px #0000000d; }
+:where(:root:not([data-theme="creative"])) .focus-copy .focus-business { background: var(--accent-soft); border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .profile-frame { background: var(--accent-soft); animation: none; }
+:where(:root:not([data-theme="creative"])) .profile-code { -webkit-text-stroke-color: var(--blue); }
+:where(:root:not([data-theme="creative"])) .profile-code::after { color: var(--accent-soft); }
+:where(:root:not([data-theme="creative"])) .orbit, :where(:root:not([data-theme="creative"])) .contact-orbit, :where(:root:not([data-theme="creative"])) .contact-orbit::before, :where(:root:not([data-theme="creative"])) .contact-orbit::after { border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .hero::before { background: var(--blue); opacity: .08; }
+:where(:root:not([data-theme="creative"])) .hero-grid { background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); opacity: .25; }
+:where(:root:not([data-theme="creative"])) .cursor-glow { background: radial-gradient(circle, var(--accent-soft), transparent 68%); opacity: .45; }
+:where(:root:not([data-theme="creative"])) .timeline-item:hover { background: var(--accent-soft); }
+:where(:root:not([data-theme="creative"])) .app-carousel-buttons button { border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .app-carousel-dots button { background: var(--muted); }
+:where(:root:not([data-theme="creative"])) .app-image-frame::after { background: #00000008; }
+:where(:root:not([data-theme="creative"])) .page-progress span, :where(:root:not([data-theme="creative"])) .focus-feature::before { box-shadow: none; }
+
 .theme-picker { position: relative; }
 [hidden] { display: none !important; }
 .theme-toggle { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font: 600 12px "Inter", Arial, sans-serif; cursor: pointer; border-radius: 6px; }
@@ -80,7 +80,7 @@ h1, h2, .focus-copy h3 { font-family: var(--heading-font); }
 .swatch-editorial { background: linear-gradient(135deg, #f8f5ed 65%, #705039 65%); }
 .swatch-tech { background: linear-gradient(135deg, #0b1220 65%, #67e8f9 65%); }
 .swatch-corporate { background: linear-gradient(135deg, #f3f6f9 65%, #365a7b 65%); }
-.swatch-creative { background: linear-gradient(135deg, #ead9fa 50%, #7130b0 50%, #9a2850); }
+.swatch-creative { background: linear-gradient(135deg, #07030d 50%, #a855f7 50%, #f0abfc); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 :root[data-theme="editorial"] h1 { font-weight: 400; letter-spacing: -.055em; line-height: .95; }
 :root[data-theme="editorial"] h2, :root[data-theme="editorial"] .focus-copy h3 { font-weight: 400; line-height: 1.08; letter-spacing: -.04em; }
@@ -97,17 +97,9 @@ h1, h2, .focus-copy h3 { font-family: var(--heading-font); }
 :root[data-theme="corporate"] .hero-grid, :root[data-theme="corporate"] .hero::before, :root[data-theme="corporate"] .cursor-glow { display: none; }
 :root[data-theme="corporate"] .profile-frame, :root[data-theme="corporate"] .focus-feature, :root[data-theme="corporate"] .earlier-grid article { border-radius: 8px; }
 :root[data-theme="corporate"] .orbit, :root[data-theme="corporate"] .contact-orbit { animation: none; }
-:root[data-theme="creative"] .hero::before { filter: none; border-radius: 35% 65% 60% 40%; opacity: .12; transform: rotate(-20deg); }
-:root[data-theme="creative"] .profile-frame { border-radius: 30% 12% 28% 10%; background: linear-gradient(135deg, #ead9fa, #ffe1ca); }
-:root[data-theme="creative"] .focus-feature { border: 2px solid var(--blue); border-radius: 28px; background: var(--accent-soft); }
-:root[data-theme="creative"] .focus-carousel { border-radius: 16px; }
-:root[data-theme="creative"] .button, :root[data-theme="creative"] .skills span { border-radius: 999px; }
-:root[data-theme="creative"] .earlier-grid { gap: 18px; }
-:root[data-theme="creative"] .earlier-grid article { border-radius: 20px; }
 @media (min-width: 981px) {
-  .focus-feature { grid-template-columns: minmax(0, 1fr); gap: 48px; }
-  .focus-carousel { width: 100%; max-width: 1000px; justify-self: center; }
-  :root[data-theme="creative"] .focus-carousel { max-width: none; }
+  :where(:root:not([data-theme="creative"])) .focus-feature { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  :where(:root:not([data-theme="creative"])) .focus-carousel { width: 100%; max-width: 1000px; justify-self: center; }
 }
 @media (max-width: 1100px) and (min-width: 981px) {
   .site-header { gap: 16px; padding-inline: 24px; }
