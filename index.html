@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="editorial">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <script src="js/theme-init.js"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
 </head>
 <body>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -37,6 +39,20 @@
       <a href="#experiencia">Experiencia</a>
       <a href="#formacion">Formación</a>
     </nav>
+    <div class="theme-picker" hidden>
+      <button class="theme-toggle" type="button" aria-expanded="false" aria-controls="theme-panel">Cambiar tema <span aria-hidden="true">◐</span></button>
+      <div class="theme-panel" id="theme-panel" hidden>
+        <fieldset>
+          <legend>Diseño de la web</legend>
+          <label><input type="radio" name="theme" value="editorial"><span class="theme-swatch swatch-editorial" aria-hidden="true"></span><span>Editorial profesional<small>Marfil · Serif · Espacioso</small></span></label>
+          <label><input type="radio" name="theme" value="tech"><span class="theme-swatch swatch-tech" aria-hidden="true"></span><span>Tech oscuro<small>Azul noche · Cian · Técnico</small></span></label>
+          <label><input type="radio" name="theme" value="corporate"><span class="theme-swatch swatch-corporate" aria-hidden="true"></span><span>Minimalismo corporativo<small>Claro · Azul grisáceo · Sobrio</small></span></label>
+          <label><input type="radio" name="theme" value="creative"><span class="theme-swatch swatch-creative" aria-hidden="true"></span><span>Portfolio creativo<small>Color · Formas · Proyectos</small></span></label>
+        </fieldset>
+        <p>El mismo contenido, a tu estilo.</p>
+      </div>
+      <span class="visually-hidden" role="status" id="theme-status"></span>
+    </div>
     <a class="header-cta" href="https://www.linkedin.com/in/adrian-cando-oviedo" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
   </header>
 
@@ -217,6 +233,7 @@
     <a href="#inicio">VOLVER ARRIBA ↑</a>
   </footer>
 
+  <script src="js/theme-picker.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
