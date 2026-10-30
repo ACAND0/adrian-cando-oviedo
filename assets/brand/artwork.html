@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Identidad corporativa de Adrián Cando Oviedo</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; font-family: "IBM Plex Sans", sans-serif; color: #191c20; }
+    #social-card { width: 1200px; height: 630px; position: relative; padding: 40px 56px; overflow: hidden; background: #fff; }
+    header { border-bottom: 1px solid #dce0e5; padding-bottom: 23px; font-size: 24px; font-weight: 600; letter-spacing: -1px; }
+    .copy { position: absolute; top: 152px; left: 56px; }
+    .eyebrow { margin: 0 0 19px; font-size: 17px; color: #2458ad; }
+    h1 { font-size: 76px; line-height: 1.08; font-weight: 500; letter-spacing: -4px; margin: 0 0 25px; }
+    h1 span { color: #2458ad; }
+    .role { margin: 0; font-size: 25px; }
+    .stack { margin: 25px 0 0; color: #59616c; font-size: 17px; }
+    .atom { position: absolute; right: 40px; top: 165px; width: 365px; height: 305px; background: radial-gradient(ellipse, #eaf1fa, #f5f8fc 38%, transparent 70%); }
+    svg { width: 100%; height: 100%; }
+    .orbit { fill: none; stroke: #7e9cbd; stroke-width: 1.2; }
+    .core { fill: #f9fbfe; stroke: #d9e4f0; }
+    .monogram { fill: #23364c; font-size: 49px; font-weight: 500; letter-spacing: -3px; }
+    .blue { fill: #2458ad; }
+    footer { position: absolute; bottom: 35px; left: 56px; right: 56px; border-top: 1px solid #dce0e5; padding-top: 19px; display: flex; justify-content: space-between; color: #59616c; font-size: 15px; }
+    footer span:first-child { color: #2458ad; }
+    #favicon-art { width: 512px; height: 512px; background: #fff; }
+    #favicon-art .orbit { stroke-width: 3; }
+    #favicon-art text { font-size: 170px; letter-spacing: -10px; font-weight: 600; fill: #23364c; }
+    #favicon-art.small .detail { display: none; }
+    #favicon-art.small text { font-size: 205px; }
+  </style>
+</head>
+<body>
+  <section id="social-card" aria-label="Miniatura del portfolio">
+    <header>ACando</header>
+    <div class="copy">
+      <p class="eyebrow">Documentum · Java · Consultoría ECM</p>
+      <h1>Adrián<br>Cando Oviedo<span>.</span></h1>
+      <p class="role">Senior Documentum Consultant</p>
+      <p class="stack">JavaFX · DFCs · Migraciones · Automatización</p>
+    </div>
+    <div class="atom" aria-hidden="true">
+      <svg viewBox="0 0 360 300">
+        <g transform="translate(180 150)">
+          <ellipse class="orbit" rx="138" ry="63" transform="rotate(-32)"/>
+          <ellipse class="orbit" rx="138" ry="63" transform="rotate(32)"/>
+          <ellipse class="orbit" rx="138" ry="63" transform="rotate(90)"/>
+          <circle class="blue" cx="113" cy="-80" r="3"/>
+          <circle fill="#597a9c" cx="-110" cy="-64" r="3"/>
+          <circle fill="#193f7d" cx="2" cy="138" r="3"/>
+          <circle class="core" r="62"/>
+          <text class="monogram" x="0" y="1" text-anchor="middle" dominant-baseline="middle">ACO<tspan class="blue">.</tspan></text>
+        </g>
+      </svg>
+    </div>
+    <footer><span>Portfolio profesional</span><span>acand0.github.io/adrian-cando-oviedo</span></footer>
+  </section>
+  <div id="favicon-art" aria-label="Icono ACO">
+    <svg viewBox="0 0 512 512">
+      <g class="detail" transform="translate(256 256)">
+        <ellipse class="orbit" rx="220" ry="105" transform="rotate(-32)"/>
+        <ellipse class="orbit" rx="220" ry="105" transform="rotate(32)"/>
+        <ellipse class="orbit" rx="220" ry="105" transform="rotate(90)"/>
+        <circle fill="#fff" stroke="#d9e4f0" r="160"/>
+      </g>
+      <text x="248" y="266" text-anchor="middle" dominant-baseline="middle">ACO<tspan class="blue">.</tspan></text>
+    </svg>
+  </div>
+</body>
+</html>

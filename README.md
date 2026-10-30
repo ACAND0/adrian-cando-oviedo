@@ -7,7 +7,7 @@ Web estática sin framework ni proceso de compilación.
 - `index.html`: contenido y estructura.
 - `css/styles.css`: diseño responsive.
 - `js/main.js`: navegación, carrusel y actualización de los años de experiencia con JavaScript nativo.
-- `assets/og.png`: imagen para compartir la web.
+- `assets/og-white.png`: miniatura blanca de 1200 x 630 para compartir la web.
 - `favicon.ico` y `assets/favicon-*.png`: identidad visual ACO para navegadores y dispositivos.
 
 Para verla, abre `index.html` en un navegador. Algunas políticas de seguridad del
@@ -37,3 +37,12 @@ El selector admite Tab, flechas, Espacio y Escape, indica el estado expandido y
 mantiene un foco visible. Respeta la preferencia de movimiento reducido.
 Sin JavaScript se muestra el contenido con el tema Minimalismo corporativo.
 Portfolio creativo conserva el diseño morado oscuro original de la web.
+
+## Miniatura e iconos
+
+`assets/brand/artwork.html` contiene los originales vectoriales de la miniatura y
+el favicon, adaptados a la identidad corporativa blanca. `scripts/build-brand.cjs`
+los exporta con Playwright y Chromium (`node scripts/build-brand.cjs`). Se puede
+indicar un navegador instalado mediante `CHROME_PATH`.
+El favicon ICO incluye tamaños de 16, 32, 48 y 256 píxeles; las versiones pequeñas
+simplifican las órbitas para priorizar la lectura de ACO.
