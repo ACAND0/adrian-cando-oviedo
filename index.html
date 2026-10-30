@@ -1,28 +1,34 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="corporate">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Perfil profesional de Adrián Cando Oviedo: OpenText Documentum, Java, JavaFX, DFCs, migraciones ECM, automatización y aplicaciones internas a medida.">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://acand0.github.io/adrian-cando-oviedo/">
-  <meta property="og:title" content="Adrián Cando Oviedo · Documentum Senior Consultant">
+  <meta property="og:title" content="Adrián Cando Oviedo · Senior Documentum Consultant">
   <meta property="og:description" content="Documentum, Java, JavaFX, DFCs, migraciones ECM y automatización.">
   <meta property="og:url" content="https://acand0.github.io/adrian-cando-oviedo/">
   <meta property="og:image" content="https://acand0.github.io/adrian-cando-oviedo/assets/og.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adrián Cando Oviedo · Documentum Senior Consultant">
+  <meta name="twitter:title" content="Adrián Cando Oviedo · Senior Documentum Consultant">
   <meta name="twitter:image" content="https://acand0.github.io/adrian-cando-oviedo/assets/og.png">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-  <title>Adrián Cando Oviedo · Documentum Senior Consultant</title>
+  <title>Adrián Cando Oviedo · Senior Documentum Consultant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;450;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/legacy.css" data-theme-sheet="legacy" media="not all">
+  <link rel="stylesheet" href="css/themes.css" data-theme-sheet="legacy" media="not all">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/styles.css" data-theme-sheet="corporate">
+  <script src="js/theme-styles.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -36,6 +42,20 @@
       <a href="#experiencia">Experiencia</a>
       <a href="#formacion">Formación</a>
     </nav>
+    <div class="theme-picker" hidden>
+      <button class="theme-toggle" type="button" aria-expanded="false" aria-controls="theme-panel">Cambiar tema <span aria-hidden="true">◐</span></button>
+      <div class="theme-panel" id="theme-panel" hidden>
+        <fieldset>
+          <legend>Diseño de la web</legend>
+          <label><input type="radio" name="theme" value="editorial"><span class="theme-swatch swatch-editorial" aria-hidden="true"></span><span>Editorial profesional<small>Marfil · Serif · Espacioso</small></span></label>
+          <label><input type="radio" name="theme" value="tech"><span class="theme-swatch swatch-tech" aria-hidden="true"></span><span>Tech oscuro<small>Azul noche · Cian · Técnico</small></span></label>
+          <label><input type="radio" name="theme" value="corporate"><span class="theme-swatch swatch-corporate" aria-hidden="true"></span><span>Minimalismo corporativo<small>Claro · Azul grisáceo · Sobrio</small></span></label>
+          <label><input type="radio" name="theme" value="creative"><span class="theme-swatch swatch-creative" aria-hidden="true"></span><span>Portfolio creativo<small>Morado · Oscuro · Original</small></span></label>
+        </fieldset>
+        <p>El mismo contenido, a tu estilo.</p>
+      </div>
+      <span class="visually-hidden" role="status" id="theme-status"></span>
+    </div>
     <a class="header-cta" href="https://www.linkedin.com/in/adrian-cando-oviedo" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
   </header>
 
@@ -44,7 +64,7 @@
       <div class="hero-copy reveal">
         <p class="eyebrow">Documentum · Java · Consultoría ECM</p>
         <h1>Adrián<br>Cando Oviedo<span class="name-period">.</span></h1>
-        <p class="hero-role">Documentum Senior Consultant</p>
+        <p class="hero-role">Senior Documentum Consultant</p>
         <p class="hero-intro">Diseño, modernizo y optimizo ecosistemas documentales críticos. Convierto migraciones complejas y procesos de negocio en soluciones fiables, medibles y preparadas para evolucionar.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#experiencia">Ver experiencia <span aria-hidden="true">↗</span></a>
@@ -170,15 +190,15 @@
       <div class="timeline">
         <article class="timeline-item reveal">
           <div class="timeline-index">01</div><div class="timeline-meta"><p>Minsait · Grupo Indra</p><span>Jun 2026 — Actualidad</span><span>Alcobendas</span><b>● POSICIÓN ACTUAL</b></div>
-          <div class="timeline-content"><h3>Documentum Senior Consultant</h3><p>Estudio, automatización y mejora de procesos empresariales con Java, Documentum DFCs, SAP HANA/ABAP y PowerShell. Soporte de incidencias y evolutivos sobre perfiles, objetos documentales y workflows.</p><div class="tag-list"><span>Documentum 23.4</span><span>Java</span><span>DFCs</span><span>SAP HANA</span><span>PowerShell</span></div></div>
+          <div class="timeline-content"><h3>Senior Documentum Consultant</h3><p>Estudio, automatización y mejora de procesos empresariales con Java, Documentum DFCs, SAP HANA/ABAP y PowerShell. Soporte de incidencias y evolutivos sobre perfiles, objetos documentales y workflows.</p><div class="tag-list"><span>Documentum 23.4</span><span>Java</span><span>DFCs</span><span>SAP HANA</span><span>PowerShell</span></div></div>
         </article>
         <article class="timeline-item reveal">
           <div class="timeline-index">02</div><div class="timeline-meta"><p>Repsol · NTT DATA</p><span>Ene 2026 — Jun 2026</span><span>Salamanca</span></div>
-          <div class="timeline-content"><h3>Documentum Technical Senior Expert Specialist</h3><p>Análisis estratégico para modernizar el ecosistema documental y definir la hoja de ruta de migración de activos digitales, evaluando el destino óptimo de la información.</p><div class="tag-list"><span>Estrategia ECM</span><span>Migración</span><span>Arquitectura</span><span>Análisis</span></div></div>
+          <div class="timeline-content"><h3>Senior Documentum Technical Expert Specialist</h3><p>Análisis estratégico para modernizar el ecosistema documental y definir la hoja de ruta de migración de activos digitales, evaluando el destino óptimo de la información.</p><div class="tag-list"><span>Estrategia ECM</span><span>Migración</span><span>Arquitectura</span><span>Análisis</span></div></div>
         </article>
         <article class="timeline-item reveal">
           <div class="timeline-index">03</div><div class="timeline-meta"><p>ADIF · NTT DATA</p><span>Abr 2025 — Mar 2026</span><span>Salamanca</span></div>
-          <div class="timeline-content"><h3>Documentum Technical Senior Expert Specialist</h3><p>Responsable técnico de la migración de Documentum 7.2 a 22.2: reestructuración del repositorio, transformación de tipos documentales y contenidos, ingeniería inversa y nuevas lógicas de negocio.</p><div class="tag-list"><span>Documentum 7.2 → 22.2</span><span>Java</span><span>DFCs</span><span>Liderazgo técnico</span></div></div>
+          <div class="timeline-content"><h3>Senior Documentum Technical Expert Specialist</h3><p>Responsable técnico de la migración de Documentum 7.2 a 22.2: reestructuración del repositorio, transformación de tipos documentales y contenidos, ingeniería inversa y nuevas lógicas de negocio.</p><div class="tag-list"><span>Documentum 7.2 → 22.2</span><span>Java</span><span>DFCs</span><span>Liderazgo técnico</span></div></div>
         </article>
         <article class="timeline-item reveal">
           <div class="timeline-index">04</div><div class="timeline-meta"><p>ADIF · NTT DATA</p><span>Nov 2022 — Jun 2025</span><span>Madrid</span></div>
@@ -230,6 +250,7 @@
     <a href="#inicio">VOLVER ARRIBA ↑</a>
   </footer>
 
+  <script src="js/theme-picker.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

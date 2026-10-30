@@ -67,7 +67,8 @@
   }, { passive: true });
 
   window.addEventListener("resize", function () {
-    if (window.innerWidth > 820) closeMenu();
+    const menuBreakpoint = document.documentElement.dataset.theme === "corporate" ? 820 : 980;
+    if (window.innerWidth > menuBreakpoint) closeMenu();
     updateActiveSection();
   });
 

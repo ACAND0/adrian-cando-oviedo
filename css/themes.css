@@ -1,0 +1,124 @@
+/* Shared appearance tokens; all themes use the same document and content. */
+:root[data-theme="editorial"] {
+  color-scheme: light;
+  --ink: #f8f5ed; --ink-soft: #f0ebe0; --panel: #fffdf7;
+  --text: #292720; --muted: #615b50; --line: #d4cdc0;
+  --blue: #705039; --cyan: #765038; --lime: #456144;
+  --on-accent: #fffdf7; --accent-soft: #e8dfcf;
+  --heading-font: Georgia, "Times New Roman", serif;
+}
+:root[data-theme="tech"] {
+  color-scheme: dark;
+  --ink: #0b1220; --ink-soft: #101c2c; --panel: #152438;
+  --text: #edf5ff; --muted: #afbed0; --line: #3e536b;
+  --blue: #67e8f9; --cyan: #7dd3fc; --lime: #a3e8af;
+  --on-accent: #0b1220; --accent-soft: #18394a;
+  --heading-font: "Inter", Arial, sans-serif;
+}
+:root, :root[data-theme="corporate"] {
+  color-scheme: light;
+  --ink: #ffffff; --ink-soft: #f3f6f9; --panel: #ffffff;
+  --text: #243448; --muted: #526276; --line: #cbd4df;
+  --blue: #365a7b; --cyan: #365a7b; --lime: #386549;
+  --on-accent: #ffffff; --accent-soft: #e8eef5;
+  --heading-font: "Inter", Arial, sans-serif;
+}
+/* Original purple design from styles.css, preserved for the creative theme. */
+:root[data-theme="creative"] {
+  color-scheme: dark;
+  --ink: #07030d; --ink-soft: #100619; --panel: #180a24;
+  --text: #fbf7ff; --muted: #ad9aba; --line: rgba(216, 180, 254, 0.18);
+  --blue: #a855f7; --cyan: #f0abfc; --lime: #c4b5fd;
+  --on-accent: #07030d; --accent-soft: #2c123f;
+  --heading-font: "Inter", Arial, sans-serif;
+}
+.site-header { grid-template-columns: auto 1fr auto auto; gap: 24px; }
+.site-header nav { justify-self: center; }
+:where(:root:not([data-theme="creative"])) body { background: var(--ink); }
+:where(:root:not([data-theme="creative"])) ::selection { background: var(--blue); color: var(--on-accent); }
+:where(:root:not([data-theme="creative"])) .site-header, :where(:root:not([data-theme="creative"])) .site-header.is-scrolled, :where(:root:not([data-theme="creative"])) .site-header nav { background: var(--ink); }
+:where(:root:not([data-theme="creative"])) .site-header.is-scrolled { box-shadow: 0 8px 28px #0000000d; }
+:where(:root:not([data-theme="creative"])) h1, :where(:root:not([data-theme="creative"])) h2, :where(:root:not([data-theme="creative"])) .focus-copy h3 { font-family: var(--heading-font); }
+:where(:root:not([data-theme="creative"])) .about, :where(:root:not([data-theme="creative"])) .education-section { background: var(--ink-soft); }
+:where(:root:not([data-theme="creative"])) .experience-section { background: var(--ink); }
+:where(:root:not([data-theme="creative"])) .contact-section { background: var(--ink-soft); }
+:where(:root:not([data-theme="creative"])) .button-primary, :where(:root:not([data-theme="creative"])) .profile-stats { color: var(--on-accent); }
+:where(:root:not([data-theme="creative"])) .button-primary:hover, :where(:root:not([data-theme="creative"])) .button-primary:focus-visible, :where(:root:not([data-theme="creative"])) .app-carousel-buttons button:hover, :where(:root:not([data-theme="creative"])) .app-carousel-buttons button:focus-visible { color: var(--on-accent); }
+:where(:root:not([data-theme="creative"])) .skills span, :where(:root:not([data-theme="creative"])) .tag-list span, :where(:root:not([data-theme="creative"])) .certifications li, :where(:root:not([data-theme="creative"])) .focus-value span { color: var(--text); }
+:where(:root:not([data-theme="creative"])) .focus-copy .focus-business, :where(:root:not([data-theme="creative"])) .focus-copy .focus-emphasis, :where(:root:not([data-theme="creative"])) .focus-points span, :where(:root:not([data-theme="creative"])) .app-slide figcaption p, :where(:root:not([data-theme="creative"])) .app-showcase-note { color: var(--muted); }
+:where(:root:not([data-theme="creative"])) .focus-feature, :where(:root:not([data-theme="creative"])) .app-carousel { background: var(--panel); border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .focus-feature.is-visible, :where(:root:not([data-theme="creative"])) .focus-carousel { box-shadow: 0 20px 50px #0000000d; }
+:where(:root:not([data-theme="creative"])) .focus-copy .focus-business { background: var(--accent-soft); border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .profile-frame { background: var(--accent-soft); animation: none; }
+:where(:root:not([data-theme="creative"])) .profile-code { -webkit-text-stroke-color: var(--blue); }
+:where(:root:not([data-theme="creative"])) .profile-code::after { color: var(--accent-soft); }
+:where(:root:not([data-theme="creative"])) .orbit, :where(:root:not([data-theme="creative"])) .contact-orbit, :where(:root:not([data-theme="creative"])) .contact-orbit::before, :where(:root:not([data-theme="creative"])) .contact-orbit::after { border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .hero::before { background: var(--blue); opacity: .08; }
+:where(:root:not([data-theme="creative"])) .hero-grid { background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); opacity: .25; }
+:where(:root:not([data-theme="creative"])) .cursor-glow { background: radial-gradient(circle, var(--accent-soft), transparent 68%); opacity: .45; }
+:where(:root:not([data-theme="creative"])) .timeline-item:hover { background: var(--accent-soft); }
+:where(:root:not([data-theme="creative"])) .app-carousel-buttons button { border-color: var(--line); }
+:where(:root:not([data-theme="creative"])) .app-carousel-dots button { background: var(--muted); }
+:where(:root:not([data-theme="creative"])) .app-image-frame::after { background: #00000008; }
+:where(:root:not([data-theme="creative"])) .page-progress span, :where(:root:not([data-theme="creative"])) .focus-feature::before { box-shadow: none; }
+
+.theme-picker { position: relative; }
+[hidden] { display: none !important; }
+.theme-toggle { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font: 600 12px "Inter", Arial, sans-serif; cursor: pointer; border-radius: 6px; }
+.theme-toggle:hover { border-color: var(--blue); }
+.theme-toggle span { font-size: 20px; color: var(--blue); }
+.theme-panel { position: absolute; top: calc(100% + 12px); right: 0; width: 320px; max-height: calc(100svh - 100px); overflow-y: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; box-shadow: 0 18px 60px #00000026; }
+.theme-panel fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.theme-panel legend { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+.theme-panel label { display: flex; align-items: center; gap: 10px; min-height: 64px; padding: 10px 8px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+.theme-panel label:has(input:checked) { background: var(--accent-soft); }
+.theme-panel label:hover { outline: 1px solid var(--line); }
+.theme-panel input { accent-color: var(--blue); width: 18px; height: 18px; margin: 0; flex-shrink: 0; }
+.theme-panel small { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; }
+.theme-panel p { font-size: 11px; color: var(--muted); margin: 12px 8px 0; }
+.theme-swatch { width: 24px; height: 32px; border-radius: 4px; border: 1px solid #8c8490; flex-shrink: 0; }
+.swatch-editorial { background: linear-gradient(135deg, #f8f5ed 65%, #705039 65%); }
+.swatch-tech { background: linear-gradient(135deg, #0b1220 65%, #67e8f9 65%); }
+.swatch-corporate { background: linear-gradient(135deg, #f3f6f9 65%, #365a7b 65%); }
+.swatch-creative { background: linear-gradient(135deg, #07030d 50%, #a855f7 50%, #f0abfc); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+:root[data-theme="editorial"] h1 { font-weight: 400; letter-spacing: -.055em; line-height: .95; }
+:root[data-theme="editorial"] h2, :root[data-theme="editorial"] .focus-copy h3 { font-weight: 400; line-height: 1.08; letter-spacing: -.04em; }
+:root[data-theme="editorial"] h2 em { font-style: italic; }
+:root[data-theme="editorial"] .hero-grid, :root[data-theme="editorial"] .cursor-glow { display: none; }
+:root[data-theme="editorial"] .profile-frame { border-radius: 48% 48% 0 0; }
+:root[data-theme="editorial"] .profile-code { font-family: Georgia, serif; font-weight: 400; }
+:root[data-theme="editorial"] .section { padding-top: 150px; padding-bottom: 150px; }
+:root[data-theme="editorial"] .button { text-transform: none; letter-spacing: 0; }
+:root[data-theme="tech"] .profile-frame { background: radial-gradient(circle, var(--accent-soft), var(--panel) 70%); }
+:root[data-theme="tech"] .focus-feature { border-top: 3px solid var(--blue); }
+:root[data-theme="corporate"] h1 { font-size: clamp(56px, 7vw, 104px); letter-spacing: -.05em; line-height: 1; }
+:root[data-theme="corporate"] h2 { font-size: clamp(38px, 4.5vw, 68px); line-height: 1.1; letter-spacing: -.04em; }
+:root[data-theme="corporate"] .hero-grid, :root[data-theme="corporate"] .hero::before, :root[data-theme="corporate"] .cursor-glow { display: none; }
+:root[data-theme="corporate"] .profile-frame, :root[data-theme="corporate"] .focus-feature, :root[data-theme="corporate"] .earlier-grid article { border-radius: 8px; }
+:root[data-theme="corporate"] .contact-orbit { animation: none; }
+@media (min-width: 981px) {
+  :where(:root:not([data-theme="creative"])) .focus-feature { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  :where(:root:not([data-theme="creative"])) .focus-carousel { width: 100%; max-width: 1000px; justify-self: center; }
+}
+@media (max-width: 1100px) and (min-width: 981px) {
+  .site-header { gap: 16px; padding-inline: 24px; }
+  .site-header nav { gap: 20px; }
+}
+@media (max-width: 980px) {
+  .site-header { grid-template-columns: 1fr auto auto; gap: 12px; }
+  .theme-picker { grid-column: 2; grid-row: 1; }
+  .menu-toggle { grid-column: 3; grid-row: 1; }
+  .site-header nav:not(.is-open) { visibility: hidden; }
+}
+@media (max-width: 720px) {
+  :root[data-theme="editorial"] .section { padding-block: 86px; }
+  :root[data-theme="corporate"] h1 { font-size: clamp(49px, 15vw, 88px); }
+  .theme-panel { position: fixed; top: 76px; right: 12px; width: min(320px, calc(100vw - 24px)); max-height: calc(100svh - 88px); }
+  .theme-toggle { padding-inline: 10px; }
+  .site-header { gap: 8px; padding-inline: 16px; }
+}
+@media (forced-colors: active) {
+  .theme-panel label:has(input:checked) { outline: 2px solid Highlight; }
+  .theme-swatch { forced-color-adjust: none; }
+}
