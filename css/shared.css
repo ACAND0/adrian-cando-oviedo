@@ -23,6 +23,61 @@
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 
+.identity-art {
+  --atom-halo: #eaf1fa;
+  --atom-fade: #f5f8fc;
+  --atom-core: #f9fbfe;
+  --atom-border: #d9e4f0;
+  --atom-ink: #23364c;
+  --atom-orbit: #7e9cbd;
+  --atom-secondary: #597a9c;
+  --atom-deep: #193f7d;
+  background: radial-gradient(ellipse at center, var(--atom-halo), var(--atom-fade) 38%, transparent 70%);
+  margin: -24px -12px 24px;
+  position: relative;
+}
+:root[data-theme="editorial"] .identity-art {
+  --atom-halo: #e8dfcf; --atom-fade: #f8f5ed; --atom-core: #fffdf7;
+  --atom-border: #d4cdc0; --atom-ink: #292720; --atom-orbit: #a38b70;
+  --atom-secondary: #8c735b; --atom-deep: #705039;
+}
+:root[data-theme="tech"] .identity-art {
+  --atom-halo: #18394a; --atom-fade: #0b1220; --atom-core: #101c2c;
+  --atom-border: #3e536b; --atom-ink: #edf5ff; --atom-orbit: #528598;
+  --atom-secondary: #7dd3fc; --atom-deep: #67e8f9;
+}
+:root[data-theme="creative"] .identity-art {
+  --atom-halo: #2c123f; --atom-fade: #07030d; --atom-core: #180a24;
+  --atom-border: #58326f; --atom-ink: #fbf7ff; --atom-orbit: #9b67bb;
+  --atom-secondary: #c4b5fd; --atom-deep: #f0abfc;
+}
+.identity-atom {
+  display: block;
+  overflow: visible;
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 500ms ease-out;
+  width: 100%;
+}
+.atom-orbit { fill: none; stroke: var(--atom-orbit); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.atom-plane:nth-of-type(2) .atom-orbit { stroke: var(--atom-border); }
+.atom-plane:nth-of-type(3) .atom-orbit { stroke: var(--atom-secondary); }
+.atom-electron { animation: electron-orbit 18s linear infinite; fill: var(--blue); }
+.electron-two { animation-duration: 24s; animation-delay: -8s; animation-direction: reverse; fill: var(--atom-secondary); }
+.electron-three { animation-duration: 21s; animation-delay: -14s; fill: var(--atom-deep); }
+.atom-core { fill: var(--atom-core); stroke: var(--atom-border); stroke-width: 1; }
+.atom-monogram { fill: var(--atom-ink); font-family: var(--font); font-size: 49px; font-weight: 500; letter-spacing: -3px; }
+.atom-period { fill: var(--blue); }
+.animation-toggle {
+  background: transparent; border: 0; color: var(--muted); display: none;
+  cursor: pointer; font: 400 11px var(--font); margin: -6px auto 0; min-height: 32px; padding: 4px 10px;
+}
+.has-js .animation-toggle { display: block; }
+.animation-toggle:hover { color: var(--blue); }
+.animation-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.identity-art.is-paused .atom-electron,
+.identity-art.is-offscreen .atom-electron { animation-play-state: paused; }
+@keyframes electron-orbit { to { transform: rotate(360deg); } }
+
 @media (max-width: 820px) {
   .identity-art { max-width: 340px; width: 100%; margin-inline: auto; }
 }

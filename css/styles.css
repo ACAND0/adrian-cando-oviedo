@@ -145,42 +145,6 @@ h1 {
 .button-primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
 .button-secondary:hover { background: var(--surface); border-color: var(--muted); }
 .hero-profile { padding: 0; }
-.identity-art {
-  background: radial-gradient(ellipse at center, #eaf1fa 0, #f5f8fc 38%, transparent 70%);
-  margin: -24px -12px 24px;
-  position: relative;
-}
-.identity-atom {
-  display: block;
-  overflow: visible;
-  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-  transition: transform 500ms ease-out;
-  width: 100%;
-}
-.atom-orbit { fill: none; stroke: #7e9cbd; stroke-width: 1; vector-effect: non-scaling-stroke; }
-.atom-plane:nth-of-type(2) .atom-orbit { stroke: #aebdcd; }
-.atom-plane:nth-of-type(3) .atom-orbit { stroke: #3d6b9e; }
-.atom-electron { animation: electron-orbit 18s linear infinite; fill: var(--blue); }
-.electron-two { animation-duration: 24s; animation-delay: -8s; animation-direction: reverse; fill: #597a9c; }
-.electron-three { animation-duration: 21s; animation-delay: -14s; fill: #193f7d; }
-.atom-core { fill: #f9fbfe; stroke: #d9e4f0; stroke-width: 1; }
-.atom-monogram { fill: #23364c; font-family: var(--font); font-size: 49px; font-weight: 500; letter-spacing: -3px; }
-.atom-period { fill: var(--blue); }
-.animation-toggle {
-  background: transparent;
-  border: 0;
-  color: var(--muted);
-  display: none;
-  font-size: 11px;
-  margin: -6px auto 0;
-  min-height: 32px;
-  padding: 4px 10px;
-}
-.has-js .animation-toggle { display: block; }
-.animation-toggle:hover { color: var(--blue); }
-.identity-art.is-paused .atom-electron,
-.identity-art.is-offscreen .atom-electron { animation-play-state: paused; }
-@keyframes electron-orbit { to { transform: rotate(360deg); } }
 .profile-label { color: var(--muted); margin-bottom: 28px; }
 .profile-stats { display: grid; gap: 24px; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); padding-top: 18px; }
 .profile-stats > div { display: grid; gap: 5px; }
