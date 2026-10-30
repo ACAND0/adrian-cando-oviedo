@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Perfil profesional de Adrián Cando Oviedo: OpenText Documentum, Java, JavaFX, DFCs, migraciones ECM, automatización y aplicaciones internas a medida.">
-  <meta name="theme-color" content="#07030d">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://acand0.github.io/adrian-cando-oviedo/">
   <meta property="og:title" content="Adrián Cando Oviedo · Documentum Senior Consultant">
   <meta property="og:description" content="Documentum, Java, JavaFX, DFCs, migraciones ECM y automatización.">
@@ -21,17 +21,16 @@
   <title>Adrián Cando Oviedo · Documentum Senior Consultant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;450;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="page-progress" aria-hidden="true"><span></span></div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <header class="site-header">
     <a class="brand" href="#inicio" aria-label="Ir al inicio">ACando</a>
-    <button class="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false"><span></span><span></span></button>
-    <nav aria-label="Navegación principal">
+    <button class="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="navegacion"><span></span><span></span></button>
+    <nav id="navegacion" aria-label="Navegación principal">
       <a href="#sobre">Sobre mí</a>
       <a href="#soluciones">Soluciones</a>
       <a href="#experiencia">Experiencia</a>
@@ -40,12 +39,11 @@
     <a class="header-cta" href="https://www.linkedin.com/in/adrian-cando-oviedo" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main>
+  <main id="contenido" tabindex="-1">
     <section class="hero" id="inicio">
-      <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="status-dot"></span>DOCUMENTUM · JAVA · CONSULTORÍA ECM</p>
-        <h1>Adrián<br>Cando <span>Oviedo.</span></h1>
+        <p class="eyebrow">Documentum · Java · Consultoría ECM</p>
+        <h1>Adrián<br>Cando Oviedo<span class="name-period">.</span></h1>
         <p class="hero-role">Documentum Senior Consultant</p>
         <p class="hero-intro">Diseño, modernizo y optimizo ecosistemas documentales críticos. Convierto migraciones complejas y procesos de negocio en soluciones fiables, medibles y preparadas para evolucionar.</p>
         <div class="hero-actions">
@@ -54,22 +52,38 @@
         </div>
       </div>
       <aside class="hero-profile reveal" aria-label="Resumen profesional">
-        <div class="profile-frame">
-          <div class="profile-code" aria-label="ACO">ACO</div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <span class="code-fragment fragment-one">{ ECM }</span><span class="code-fragment fragment-two">DFCs</span><span class="code-fragment fragment-three">23.4</span>
+        <div class="identity-art">
+          <svg class="identity-atom" viewBox="0 0 360 300" role="img" aria-labelledby="identity-title">
+            <title id="identity-title">ACO, iniciales de Adrián Cando Oviedo, entre órbitas azules</title>
+            <g class="atom-plane" transform="translate(180 150) rotate(-32) scale(1 .46)">
+              <circle class="atom-orbit" r="138" />
+              <g class="atom-electron electron-one"><circle cx="138" r="5" /></g>
+            </g>
+            <g class="atom-plane" transform="translate(180 150) rotate(32) scale(1 .46)">
+              <circle class="atom-orbit" r="138" />
+              <g class="atom-electron electron-two"><circle cx="138" r="5" /></g>
+            </g>
+            <g class="atom-plane" transform="translate(180 150) rotate(90) scale(1 .46)">
+              <circle class="atom-orbit" r="138" />
+              <g class="atom-electron electron-three"><circle cx="138" r="5" /></g>
+            </g>
+            <circle class="atom-core" cx="180" cy="150" r="62" />
+            <text class="atom-monogram" x="180" y="151" text-anchor="middle" dominant-baseline="middle">ACO<tspan class="atom-period">.</tspan></text>
+          </svg>
+          <button class="animation-toggle" type="button" aria-pressed="false">Pausar animación</button>
         </div>
+        <p class="profile-label">Experiencia en ECM</p>
         <div class="profile-stats">
-          <div><strong>6+</strong><span>Años en desarrollo y ECM</span></div>
+          <div><strong data-experience-start="2019-11" data-suffix="+">6+</strong><span>Años en desarrollo y ECM</span></div>
           <div aria-label="Experiencia con OpenText Documentum desde la versión 7.2 hasta la 23.4"><strong>7.2→23.4</strong><span>Versiones de Documentum</span></div>
         </div>
       </aside>
-      <div class="scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i></div>
     </section>
 
     <section class="section about" id="sobre">
       <div class="section-marker"><span>01</span><p>SOBRE MÍ</p></div>
       <div class="about-content">
-        <div class="reveal"><p class="section-kicker">// PERFIL PROFESIONAL</p><h2>Tecnología documental<br>con visión de <em>negocio.</em></h2></div>
+        <div class="reveal"><p class="section-kicker">Perfil profesional</p><h2>Tecnología documental<br>con visión de <em>negocio.</em></h2></div>
         <div class="about-copy reveal">
           <p>Soy analista y desarrollador especializado en <strong>OpenText Documentum</strong>, con experiencia en proyectos de gran alcance para sectores de energía, infraestructuras, construcción, seguros y servicios públicos.</p>
           <p>Mi trabajo conecta arquitectura, desarrollo y operación: desde modelos documentales y seguridad hasta migraciones completas, integraciones Java, rendimiento y automatización.</p>
@@ -84,14 +98,14 @@
         <article><span class="metric-number">∞</span><p>Mejora continua y aprendizaje aplicado</p></article>
       </div>
       <div class="skills-wrap reveal">
-        <p class="skills-label">STACK &amp; ESPECIALIDADES</p>
+        <p class="skills-label">Tecnologías y especialidades</p>
         <div class="skills" aria-label="Tecnologías y especialidades">
           <span>OpenText Documentum</span><span>Java / DFCs</span><span>JavaFX</span><span>D2 / D2-Config</span><span>Migraciones ECM</span><span>SAP HANA / ABAP</span><span>PowerShell</span><span>REST APIs</span><span>SQL</span><span>JMeter / JProfiler</span><span>Copilot 365</span>
         </div>
       </div>
       <article class="focus-feature reveal" id="soluciones">
         <div class="focus-copy">
-          <p class="section-kicker">// CAPACIDAD DIFERENCIAL</p>
+          <p class="section-kicker">Especialización</p>
           <h3>Herramientas a medida sobre Documentum</h3>
           <p>Diseño y desarrollo aplicaciones de escritorio con <strong>JavaFX</strong> y <strong>Documentum DFCs</strong> para resolver operativas internas concretas: consultas, validaciones, cargas, actualizaciones masivas, administración controlada y automatización de tareas sobre el repositorio.</p>
           <p class="focus-business"><strong>Herramientas personalizadas aplicadas al negocio.</strong> Cada solución se diseña según sus procesos, reglas operativas y necesidades reales, adaptando la tecnología a la forma de trabajar de cada equipo.</p>
@@ -137,11 +151,11 @@
               <button type="button" data-carousel-prev aria-label="Ver ejemplo anterior">←</button>
               <button type="button" data-carousel-next aria-label="Ver ejemplo siguiente">→</button>
             </div>
-            <div class="app-carousel-dots" role="tablist" aria-label="Seleccionar ejemplo">
-              <button type="button" class="is-active" data-carousel-dot="0" role="tab" aria-selected="true" aria-label="Ver ejemplo 1"></button>
-              <button type="button" data-carousel-dot="1" role="tab" aria-selected="false" aria-label="Ver ejemplo 2"></button>
-              <button type="button" data-carousel-dot="2" role="tab" aria-selected="false" aria-label="Ver ejemplo 3"></button>
-              <button type="button" data-carousel-dot="3" role="tab" aria-selected="false" aria-label="Ver ejemplo 4"></button>
+            <div class="app-carousel-dots" role="group" aria-label="Seleccionar ejemplo">
+              <button type="button" class="is-active" data-carousel-dot="0" aria-pressed="true" aria-label="Ver ejemplo 1"></button>
+              <button type="button" data-carousel-dot="1" aria-pressed="false" aria-label="Ver ejemplo 2"></button>
+              <button type="button" data-carousel-dot="2" aria-pressed="false" aria-label="Ver ejemplo 3"></button>
+              <button type="button" data-carousel-dot="3" aria-pressed="false" aria-label="Ver ejemplo 4"></button>
             </div>
             <p class="app-carousel-status" aria-live="polite"><span>01</span> / <span data-carousel-total>04</span></p>
           </div>
@@ -152,7 +166,7 @@
 
     <section class="section experience-section" id="experiencia">
       <div class="section-marker"><span>02</span><p>TRAYECTORIA</p></div>
-      <div class="section-heading reveal"><p class="section-kicker">// EXPERIENCIA PROFESIONAL</p><h2>Sistemas que evolucionan.<br>Datos que <em>permanecen.</em></h2></div>
+      <div class="section-heading reveal"><p class="section-kicker">Experiencia profesional</p><h2>Sistemas que evolucionan.<br>Datos que <em>permanecen.</em></h2></div>
       <div class="timeline">
         <article class="timeline-item reveal">
           <div class="timeline-index">01</div><div class="timeline-meta"><p>Minsait · Grupo Indra</p><span>Jun 2026 — Actualidad</span><span>Alcobendas</span><b>● POSICIÓN ACTUAL</b></div>
@@ -180,7 +194,7 @@
         </article>
       </div>
       <div class="earlier reveal">
-        <p class="section-kicker">// ETAPAS ANTERIORES</p>
+        <p class="section-kicker">Etapas anteriores</p>
         <div class="earlier-grid">
           <article><span>2019 — 2020</span><h3>Business Application Developer</h3><h4>MAPFRE · SERBATIC</h4><p>Aplicaciones Java de generación documental, geolocalización, SQL y cargas masivas.</p></article>
           <article><span>2019</span><h3>Web Developer</h3><h4>InternacionalWeb</h4><p>Desarrollo web para distintos sectores, mantenimiento WordPress, SEO y gestión de cambios.</p></article>
@@ -192,18 +206,17 @@
     <section class="section education-section" id="formacion">
       <div class="section-marker"><span>03</span><p>FORMACIÓN</p></div>
       <div class="education-layout">
-        <div class="section-heading reveal"><p class="section-kicker">// BASE TÉCNICA</p><h2>Aprender. Aplicar.<br><em>Compartir.</em></h2><p class="education-intro">Una base sólida en desarrollo web y sistemas, reforzada con certificaciones específicas y aprendizaje continuo en Documentum, automatización e inteligencia artificial.</p></div>
+        <div class="section-heading reveal"><p class="section-kicker">Base técnica</p><h2>Aprender. Aplicar.<br><em>Compartir.</em></h2><p class="education-intro">Una base sólida en desarrollo web y sistemas, reforzada con certificaciones específicas y aprendizaje continuo en Documentum, automatización e inteligencia artificial.</p></div>
         <div class="education-list reveal">
-          <article><span class="education-icon" aria-hidden="true">+</span><div><p>Especialización</p><h3>Técnico Superior en Desarrollo de Aplicaciones Web</h3><span>I.E.S. Los Sauces · 2017 — 2019</span></div></article>
-          <article><span class="education-icon" aria-hidden="true">+</span><div><p>Formación técnica</p><h3>Técnico en Sistemas Microinformáticos y Redes</h3><span>I.E.S. Los Sauces · 2015 — 2017</span></div></article>
+          <article><div><p>Especialización</p><h3>Técnico Superior en Desarrollo de Aplicaciones Web</h3><span>I.E.S. Los Sauces · 2017 — 2019</span></div></article>
+          <article><div><p>Formación técnica</p><h3>Técnico en Sistemas Microinformáticos y Redes</h3><span>I.E.S. Los Sauces · 2015 — 2017</span></div></article>
           <div class="certifications"><p>CERTIFICACIONES</p><ul><li>Documentum Certified Business Administrator · 5-8055</li><li>Microsoft Copilot 365 · IA Generativa en Microsoft 365</li><li>Técnico en programación de Java</li></ul></div>
         </div>
       </div>
     </section>
 
     <section class="contact-section" id="perfil">
-      <div class="contact-orbit" aria-hidden="true"></div>
-      <p class="section-kicker reveal">// PERFIL PROFESIONAL</p>
+      <p class="section-kicker reveal">Perfil profesional</p>
       <h2 class="reveal">Tecnología, criterio<br>y <em>evolución.</em></h2>
       <p class="contact-copy reveal">Esta web recoge una muestra de mi recorrido, mi especialización y la forma en la que trabajo con plataformas documentales, desarrollo Java y automatización empresarial.</p>
       <a class="contact-email reveal" href="mailto:adriancando1617@gmail.com">adriancando1617@gmail.com <span aria-hidden="true">↗</span></a>
