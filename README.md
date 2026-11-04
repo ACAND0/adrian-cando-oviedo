@@ -12,11 +12,14 @@ presenta nombre, cargo y enlaces directos al trabajo y al contacto profesional.
 
 - El mapa ECM relaciona cuatro áreas de experiencia con trabajo documentado,
   tecnologías y referencias a casos o etapas profesionales.
-- Los cinco casos de Minsait, Repsol, ADIF, Ferrovial y ACCIONA recogen la
+- Los seis casos de Minsait, Repsol, ADIF, Ferrovial y ACCIONA recogen la
   información de la trayectoria y las aportaciones facilitadas por el autor.
   Minsait destaca el trabajo actual en herramientas internas con JavaFX y DFCs
   para automatización y operativa técnica. No se añaden métricas ni resultados
   no facilitados.
+- ADIF cuenta con dos casos diferenciados: la migración del repositorio y el
+  desarrollo desde cero de aplicaciones con Java y Spring. Este último detalle
+  fue facilitado directamente por el autor; no se infieren métricas ni resultados.
 - Las recreaciones de aplicaciones se presentan por separado, como material
   ilustrativo con datos ficticios.
 - Se conservan las seis etapas profesionales principales, las tres anteriores,

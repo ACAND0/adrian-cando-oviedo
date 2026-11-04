@@ -15,7 +15,7 @@ async function main() {
     const response = await page.goto(url);
     if (url.startsWith("http")) assert.equal(response.status(), 200);
     assert.match(await page.title(), /Senior Documentum Consultant/);
-    assert.equal(await page.locator(".case-study").count(), 5);
+    assert.equal(await page.locator(".case-study").count(), 6);
     assert.equal(await page.locator(".case-study").first().getAttribute("id"), "caso-minsait");
     assert.match(await page.locator("#caso-minsait").innerText(), /JavaFX/);
     assert.match(await page.locator("#caso-minsait").innerText(), /DFCs/);
@@ -57,7 +57,11 @@ async function main() {
     await page.goto(url + "#solucion-integrar");
     assert.equal(await page.locator(".map-panel:not([hidden])").getAttribute("id"), "solucion-integrar");
     await page.locator("#solucion-integrar .text-link").click();
+    assert.equal(await page.locator("#caso-adif-desarrollo details").evaluate(element => element.open), true);
+    assert.match(await page.locator("#caso-adif-desarrollo h3").innerText(), /desde cero con Java y Spring/);
+    await page.locator("#caso-adif-desarrollo details .text-link").click();
     assert.equal(await page.locator("#trayectoria-adif-desarrollo details").evaluate(element => element.open), true);
+    assert.match(await page.locator("#trayectoria-adif-desarrollo .details-body").innerText(), /Java y Spring/);
     await page.goto(url + "#caso-ferrovial");
     assert.equal(await page.locator("#caso-ferrovial details").evaluate(element => element.open), true);
     await page.goto(url + "#perfil");

@@ -119,7 +119,7 @@ h2 { font-size: clamp(34px, 4vw, 52px); letter-spacing: -.045em; line-height: 1.
 .case-study:first-child { padding: 35px; border: 1px solid #454842; background: linear-gradient(125deg, #242624, #1b1d1c); border-radius: 6px; margin-bottom: 22px; }
 .case-heading { display: flex; align-items: start; gap: 25px; }
 .case-number { color: var(--accent); font-size: 14px; padding-top: 3px; font-variant-numeric: tabular-nums; }
-.case-heading .eyebrow { font-size: 11px; margin-bottom: 10px; }
+.case-heading .eyebrow { color: var(--accent); font-size: 11px; margin-bottom: 10px; font-weight: 600; }
 .case-heading h3 { font-size: clamp(24px, 2.7vw, 34px); letter-spacing: -.035em; max-width: 760px; }
 .case-type { margin-left: auto; color: var(--soft); font-size: 11px; line-height: 1.6; max-width: 100px; flex-shrink: 0; border-left: 1px solid var(--line); padding-left: 18px; }
 .case-lead { max-width: 850px; color: var(--muted); margin: 20px 0 20px 44px; font-size: 16px; line-height: 1.8; }
@@ -160,7 +160,7 @@ details[open] > summary span { transform: rotate(45deg); }
 .career-period { display: flex; flex-direction: column; align-items: start; font-size: 13px; color: var(--muted); }
 .career-period small { color: var(--soft); font-size: 12px; margin-top: 4px; }
 .current-role { display: inline-block; color: var(--accent); font-size: 11px; font-weight: 500; border: 1px solid #55543b; padding: 2px 8px; border-radius: 3px; margin-top: 12px; }
-.career-company { color: var(--muted); font-size: 14px; margin-bottom: 9px; }
+.career-company { color: var(--accent); font-size: 14px; font-weight: 500; margin-bottom: 9px; }
 .career-copy h3 { font-size: 24px; letter-spacing: -.025em; max-width: 750px; }
 .career-copy details { margin-top: 14px; }
 .career-copy details > summary { color: var(--soft); font-size: 13px; }
@@ -172,7 +172,7 @@ details[open] > summary span { transform: rotate(45deg); }
 .earlier-grid article { border-top: 1px solid var(--line); padding-top: 20px; }
 .earlier-grid article > span { font-size: 12px; color: var(--soft); }
 .earlier-grid h3 { font-size: 19px; margin: 10px 0 8px; letter-spacing: -.015em; }
-.earlier-grid h4 { font-size: 13px; color: var(--soft); font-weight: 400; margin-bottom: 14px; }
+.earlier-grid h4 { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 14px; }
 .earlier-grid p { font-size: 14px; color: var(--muted); line-height: 1.8; }
 
 .technology-heading { display: flex; justify-content: space-between; gap: 50px; align-items: end; margin-bottom: 35px; }
