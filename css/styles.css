@@ -32,8 +32,8 @@ strong { font-weight: 600; color: var(--text); }
 .profile-card { padding: 40px 24px 24px; position: sticky; top: 40px; }
 .profile-heading { text-align: center; }
 .profile-toggle { display: none; }
-.avatar { width: 150px; height: 150px; border-radius: 30px; background: linear-gradient(145deg, #303031, #252525); margin: 0 auto 25px; overflow: hidden; }
-.avatar svg { display: block; width: 100%; height: 100%; }
+.avatar { width: 180px; height: 180px; border-radius: 26px; background: #fff; border: 1px solid #8c7948; padding: 3px; margin: 0 auto 25px; overflow: hidden; }
+.avatar img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: inherit; }
 .profile-name { font-size: 23px; line-height: 1.4; font-weight: 700; letter-spacing: -.7px; margin-bottom: 15px; }
 .role-badge { display: inline-block; font-size: 10px; line-height: 1.6; padding: 6px 12px; background: #2b2b2c; border-radius: 7px; margin: 0; color: #ededee; }
 .profile-details { border-top: 1px solid var(--line); margin-top: 30px; padding-top: 28px; display: grid; gap: 25px; }
@@ -71,9 +71,10 @@ strong { font-weight: 600; color: var(--text); }
 .service-card > .icon { width: 36px; height: 36px; color: var(--accent); margin-top: 2px; }
 .service-card h3 { font-size: 16px; margin-bottom: 8px; }
 .service-card p { font-size: 13px; line-height: 1.75; color: var(--muted); margin-bottom: 0; }
-.skill-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.skill-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 16px; }
 .skill-grid > div { min-width: 0; text-align: center; }
-.skill-grid b { display: grid; place-items: center; height: 77px; border-radius: 16px; background: #29292c; border: 1px solid #38383d; color: var(--accent); font-size: 27px; font-weight: 600; letter-spacing: -1px; margin-bottom: 10px; }
+.skill-grid .skill-art { display: grid; place-items: center; height: 90px; border-radius: 14px; background: linear-gradient(145deg, #2c2c2e, #252526); border: 1px solid #3b3b3e; margin-bottom: 10px; }
+.skill-art img { display: block; width: 48px; height: 48px; }
 .skill-grid span { color: var(--muted); font-size: 10px; white-space: nowrap; }
 .skill-tags, .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .skill-tags { margin-top: 22px; }
@@ -160,8 +161,8 @@ strong { font-weight: 600; color: var(--text); }
   .service-card { padding: 20px; gap: 14px; }
   .service-card > .icon { width: 28px; height: 28px; }
   .service-card h3 { font-size: 14px; }
-  .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-  .skill-grid b { height: 68px; }
+  .skill-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .skill-grid .skill-art { height: 78px; }
 }
 
 @media (max-width: 940px) {
@@ -176,7 +177,7 @@ strong { font-weight: 600; color: var(--text); }
   .icon-box { width: 44px; height: 44px; }
   .social-link { margin: 16px 0 0; }
   .profile-note { text-align: left; margin-top: 12px; }
-  .skill-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+  .skill-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
   .content-card { min-height: 0; }
 }
 
@@ -208,7 +209,7 @@ strong { font-weight: 600; color: var(--text); }
   .service-card > .icon { width: 32px; height: 32px; }
   .service-card h3 { font-size: 15px; }
   .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
-  .skill-grid b { font-size: 25px; }
+  .skill-art img { width: 42px; height: 42px; }
   .skill-grid span { font-size: 10px; }
   .section-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   .value-list { grid-template-columns: 1fr; gap: 10px; }

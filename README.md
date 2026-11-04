@@ -12,6 +12,8 @@ certificados ni textos del sitio de referencia.
 - `css/styles.css`: diseño único responsive y estilos de impresión.
 - `js/main.js`: pestañas accesibles, navegación por URL, datos de contacto en móvil y ampliación de imágenes.
 - `assets/app-examples/`: recreaciones anonimizadas con datos ficticios.
+- `assets/adrian-cando-profile.png`: fotografía original de perfil, sin retoques ni filtros.
+- `assets/technologies/`: pictogramas vectoriales de tecnologías, normalizados en amarillo.
 - `assets/og-profile.png`: miniatura para compartir, de 1200 x 630.
 - `assets/brand/artwork.html`: originales de la miniatura y del favicon.
 - `scripts/build-brand.cjs`: exportación de miniatura e iconos con Playwright.
