@@ -13,8 +13,8 @@ certificados ni textos del sitio de referencia.
 - `js/main.js`: pestañas accesibles, navegación por URL, datos de contacto en móvil y ampliación de imágenes.
 - `assets/app-examples/`: recreaciones anonimizadas con datos ficticios.
 - `assets/adrian-cando-profile.png`: fotografía original conservada.
-- `assets/adrian-cando-cutout.png`: versión con fondo transparente, sin máscara ni halo CSS.
-- `assets/technologies/`: imágenes originales aportadas por el usuario, sin redibujar ni recolorear, ajustadas con `object-fit: contain`. DFCs y D2-Config aparecen en texto porque no se ha aportado un archivo específico.
+- `assets/adrian-cando-cutout.png`: versión con fondo transparente, sin máscara ni halo CSS. El fondo gris cálido se aplica al contenedor HTML; la foto permanece intacta.
+- `assets/technologies/`: originales conservados y copias con fondo transparente de D2, JavaFX y PowerShell. Se muestran con `object-fit: contain`, sin recuadros claros. REST conserva su archivo original y se presenta en blanco mediante CSS. DFCs y D2-Config aparecen en texto porque no se ha aportado un archivo específico.
 - `assets/og-profile.png`: miniatura para compartir, de 1200 x 630.
 - `assets/brand/artwork.html`: originales de la miniatura y del favicon.
 - `scripts/build-brand.cjs`: exportación de miniatura e iconos con Playwright.

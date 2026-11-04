@@ -32,7 +32,7 @@ strong { font-weight: 600; color: var(--text); }
 .profile-card { padding: 40px 24px 24px; position: sticky; top: 40px; }
 .profile-heading { text-align: center; }
 .profile-toggle { display: none; }
-.avatar { width: 180px; height: 180px; border-radius: 26px; background: var(--panel); margin: 0 auto 25px; overflow: hidden; }
+.avatar { width: 180px; height: 180px; border-radius: 26px; background: linear-gradient(145deg, #817565, #55514a 60%, #353636); box-shadow: inset 0 0 0 1px #ffffff0d; margin: 0 auto 25px; overflow: hidden; }
 .avatar img {
   display: block; width: 100%; height: 100%; object-fit: contain; border-radius: inherit;
 }
@@ -76,7 +76,9 @@ strong { font-weight: 600; color: var(--text); }
 .skill-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 16px; }
 .skill-grid > div { min-width: 0; text-align: center; }
 .skill-grid .skill-art { display: grid; place-items: center; height: 90px; border-radius: 14px; background: linear-gradient(145deg, #2c2c2e, #252526); border: 1px solid #3b3b3e; margin-bottom: 10px; }
-.skill-art img { display: block; width: 64px; height: 64px; padding: 4px; object-fit: contain; background: #fff; border-radius: 8px; }
+.skill-art img { display: block; width: 64px; height: 64px; object-fit: contain; }
+.skill-art .logo-rest { filter: brightness(0) invert(1); }
+.skill-art img[src$="d2-transparent.png"] { transform: scale(1.2); }
 .skill-wordmark { color: var(--muted); font-size: 15px; font-weight: 600; }
 .skill-grid span { color: var(--muted); font-size: 10px; white-space: nowrap; }
 .skill-tags, .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
