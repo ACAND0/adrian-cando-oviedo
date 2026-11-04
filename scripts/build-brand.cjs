@@ -13,10 +13,10 @@ async function build() {
     const page = await browser.newPage({ viewport: { width: 1200, height: 1200 }, deviceScaleFactor: 1 });
     await page.goto(pathToFileURL(path.join(root, "assets/brand/artwork.html")).href);
     await page.evaluate(() => document.fonts.ready);
-    if (!await page.evaluate(() => document.fonts.check('500 76px "IBM Plex Sans"'))) {
-      throw new Error("IBM Plex Sans must be loaded before exporting.");
+    if (!await page.evaluate(() => document.fonts.check('500 76px "Manrope"'))) {
+      throw new Error("Manrope must be loaded before exporting.");
     }
-    await page.locator("#social-card").screenshot({ path: path.join(root, "assets/og-white.png") });
+    await page.locator("#social-card").screenshot({ path: path.join(root, "assets/og-profile.png") });
     const icons = [];
     for (const size of [16, 32, 48, 180, 192, 256, 512, 1024]) {
       await page.locator("#favicon-art").evaluate((element, size) => {
@@ -45,7 +45,7 @@ async function build() {
       offset += png.length;
     });
     await fs.writeFile(path.join(root, "favicon.ico"), Buffer.concat([directory, ...icons.map(icon => icon.png)]));
-    console.log("Generated white social card (1200x630) and favicon family.");
+    console.log("Generated charcoal and gold social card (1200x630) and favicon family.");
   } finally {
     await browser.close();
   }

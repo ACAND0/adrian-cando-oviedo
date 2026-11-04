@@ -1,48 +1,46 @@
 # Portfolio de Adrián Cando Oviedo
 
-Web estática sin framework ni proceso de compilación.
+Portfolio estático en español, con un único diseño oscuro inspirado en la
+composición de https://aakashrajbanshi.com.np/: tarjeta de perfil lateral,
+panel principal con pestañas y acentos dorados. La identidad, el contenido
+profesional y los gráficos pertenecen a este portfolio; no se utilizan fotos,
+certificados ni textos del sitio de referencia.
 
 ## Estructura
 
-- `index.html`: contenido y estructura.
-- `css/styles.css`: diseño responsive.
-- `js/main.js`: navegación, carrusel y actualización de los años de experiencia con JavaScript nativo.
-- `assets/og-white.png`: miniatura blanca de 1200 x 630 para compartir la web.
-- `favicon.ico` y `assets/favicon-*.png`: identidad visual ACO para navegadores y dispositivos.
+- `index.html`: perfil, experiencia, soluciones, formación y contacto.
+- `css/styles.css`: diseño único responsive y estilos de impresión.
+- `js/main.js`: pestañas accesibles, navegación por URL, datos de contacto en móvil y ampliación de imágenes.
+- `assets/app-examples/`: recreaciones anonimizadas con datos ficticios.
+- `assets/og-profile.png`: miniatura para compartir, de 1200 x 630.
+- `assets/brand/artwork.html`: originales de la miniatura y del favicon.
+- `scripts/build-brand.cjs`: exportación de miniatura e iconos con Playwright.
 
-Para verla, abre `index.html` en un navegador. Algunas políticas de seguridad del
-navegador funcionan mejor sirviendo la carpeta con un servidor HTTP local sencillo.
+## Uso
 
-Diseño claro en blanco y negro con acentos azules, tipografía IBM Plex Sans y
-composición responsive. El contenido permanece visible aunque JavaScript no esté
-disponible. La navegación y el carrusel admiten teclado y movimiento reducido.
+Abrir `index.html` o servir la carpeta con un servidor HTTP estático.
+No hay framework, dependencias de ejecución ni compilación. La tipografía
+Manrope se carga de Google Fonts y dispone de una fuente de respaldo.
 
-La portada incorpora un monograma ACO vectorial con órbitas animadas en azul
-acero. Permite pausar el movimiento, se detiene fuera de pantalla y respeta la
-preferencia de movimiento reducido del sistema.
-## Temas visuales
+Las pestañas admiten flechas, Inicio, Fin, Enter y Espacio. Sus enlaces
+permiten abrir directamente `#sobre`, `#experiencia`, `#soluciones`,
+`#formacion` y `#contacto`, y utilizar Atrás y Adelante del navegador.
+Sin JavaScript, todos los apartados permanecen visibles.
+Las imágenes se amplían en un diálogo que puede cerrarse con Escape.
+El diseño respeta la preferencia de movimiento reducido.
 
-El botón «Cambiar tema» ofrece Editorial profesional, Tech oscuro,
-Minimalismo corporativo (predeterminado) y Portfolio creativo sobre un único contenido HTML.
-Los estilos están en `css/themes.css`; `js/theme-init.js` restaura la preferencia
-antes de pintar la página y `js/theme-picker.js` gestiona el selector.
-El diseño corporativo actualizado está en `css/styles.css`; los otros tres usan
-`css/legacy.css` y `css/themes.css`. `js/theme-styles.js` activa las hojas del tema
-elegido y `css/shared.css` comparte el selector y la identidad animada.
-La elección se guarda en `localStorage` con la clave `portfolio-theme` y se
-sincroniza entre pestañas. Si el almacenamiento está bloqueado, se puede cambiar
-el diseño durante la sesión y se anuncia que no se ha podido guardar.
+No hay selector ni preferencias de temas. Los valores antiguos de
+`portfolio-theme` no se consultan.
 
-El selector admite Tab, flechas, Espacio y Escape, indica el estado expandido y
-mantiene un foco visible. Respeta la preferencia de movimiento reducido.
-Sin JavaScript se muestra el contenido con el tema Minimalismo corporativo.
-Portfolio creativo conserva el diseño morado oscuro original de la web.
+## Identidad visual
 
-## Miniatura e iconos
+Para regenerar los iconos y la miniatura, instalar Playwright y Chromium
+en el entorno de desarrollo y ejecutar `node scripts/build-brand.cjs`.
+Se puede indicar un navegador instalado mediante `CHROME_PATH`.
+El favicon ICO incluye tamaños de 16, 32, 48 y 256 píxeles.
 
-`assets/brand/artwork.html` contiene los originales vectoriales de la miniatura y
-el favicon, adaptados a la identidad corporativa blanca. `scripts/build-brand.cjs`
-los exporta con Playwright y Chromium (`node scripts/build-brand.cjs`). Se puede
-indicar un navegador instalado mediante `CHROME_PATH`.
-El favicon ICO incluye tamaños de 16, 32, 48 y 256 píxeles; las versiones pequeñas
-simplifican las órbitas para priorizar la lectura de ACO.
+## Publicación
+
+GitHub Pages sirve la raíz de la rama `portfolio-profile`:
+https://acand0.github.io/adrian-cando-oviedo/
+Un push a esa rama activa el despliegue de Pages.

@@ -1,168 +1,118 @@
 (function () {
   "use strict";
 
-  document.documentElement.classList.add("has-js");
-
-  const menuButton = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".site-header nav");
-  const navLinks = Array.from(nav.querySelectorAll("a"));
-  const sections = navLinks.map(function (link) {
-    return document.getElementById(link.hash.slice(1));
-  });
-  let scrollTicking = false;
-
-  function closeMenu() {
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Abrir navegación");
-    menuButton.classList.remove("is-open");
-    nav.classList.remove("is-open");
-  }
-
-  menuButton.addEventListener("click", function () {
-    const open = menuButton.getAttribute("aria-expanded") !== "true";
-    menuButton.setAttribute("aria-expanded", String(open));
-    menuButton.setAttribute("aria-label", open ? "Cerrar navegación" : "Abrir navegación");
-    menuButton.classList.toggle("is-open", open);
-    nav.classList.toggle("is-open", open);
-  });
-
-  navLinks.forEach(function (link) {
-    link.addEventListener("click", closeMenu);
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
-      closeMenu();
-      menuButton.focus();
-    }
-  });
-
-  document.addEventListener("click", function (event) {
-    if (!event.target.closest(".site-header")) closeMenu();
-  });
-
-  function updateActiveSection() {
-    const viewportMarker = window.scrollY + 160;
-    let activeIndex = -1;
-    sections.forEach(function (section, index) {
-      if (section && section.getBoundingClientRect().top + window.scrollY <= viewportMarker) {
-        activeIndex = index;
-      }
-    });
-    navLinks.forEach(function (link, index) {
-      const active = index === activeIndex;
-      link.classList.toggle("is-active", active);
-      if (active) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
-    });
-  }
-
-  window.addEventListener("scroll", function () {
-    if (scrollTicking) return;
-    scrollTicking = true;
-    window.requestAnimationFrame(function () {
-      updateActiveSection();
-      scrollTicking = false;
-    });
-  }, { passive: true });
-
-  window.addEventListener("resize", function () {
-    const menuBreakpoint = document.documentElement.dataset.theme === "corporate" ? 820 : 980;
-    if (window.innerWidth > menuBreakpoint) closeMenu();
-    updateActiveSection();
-  });
-
-  document.querySelectorAll("[data-experience-start]").forEach(function (counter) {
-    const start = counter.dataset.experienceStart.split("-").map(Number);
-    const now = new Date();
-    let years = now.getFullYear() - start[0];
-    if (now.getMonth() + 1 < start[1]) years -= 1;
-    years = Math.max(years, 0);
-    counter.textContent = years + (counter.dataset.suffix || "");
-    counter.setAttribute("aria-label", years + " años de experiencia");
-  });
-
-  document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
-    const track = carousel.querySelector(".app-carousel-track");
-    const slides = Array.from(carousel.querySelectorAll(".app-slide"));
-    const previous = carousel.querySelector("[data-carousel-prev]");
-    const next = carousel.querySelector("[data-carousel-next]");
-    const dots = Array.from(carousel.querySelectorAll("[data-carousel-dot]"));
-    const status = carousel.querySelector(".app-carousel-status span");
-    const totalStatus = carousel.querySelector("[data-carousel-total]");
-    let current = 0;
-    let touchStartX = 0;
-
-    totalStatus.textContent = String(slides.length).padStart(2, "0");
-
-    function showSlide(index) {
-      current = (index + slides.length) % slides.length;
-      track.style.transform = "translate3d(" + (-current * 100) + "%,0,0)";
-      slides.forEach(function (slide, slideIndex) {
-        const active = slideIndex === current;
-        slide.setAttribute("aria-hidden", String(!active));
-        slide.querySelectorAll("a, button").forEach(function (control) {
-          control.tabIndex = active ? 0 : -1;
-        });
-      });
-      dots.forEach(function (dot, dotIndex) {
-        const active = dotIndex === current;
-        dot.classList.toggle("is-active", active);
-        dot.setAttribute("aria-pressed", String(active));
-      });
-      status.textContent = String(current + 1).padStart(2, "0");
-    }
-
-    previous.addEventListener("click", function () { showSlide(current - 1); });
-    next.addEventListener("click", function () { showSlide(current + 1); });
-    dots.forEach(function (dot) {
-      dot.addEventListener("click", function () { showSlide(Number(dot.dataset.carouselDot)); });
-    });
-    carousel.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-        event.preventDefault();
-        showSlide(current + (event.key === "ArrowRight" ? 1 : -1));
-      }
-    });
-    carousel.addEventListener("touchstart", function (event) {
-      touchStartX = event.changedTouches[0].clientX;
-    }, { passive: true });
-    carousel.addEventListener("touchend", function (event) {
-      const distance = event.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(distance) > 45) showSlide(current + (distance < 0 ? 1 : -1));
-    }, { passive: true });
-
-    showSlide(0);
-  });
-
-  const identity = document.querySelector(".identity-art");
-  const animationToggle = document.querySelector(".animation-toggle");
+  const navigation = document.querySelector(".page-nav");
+  const links = Array.from(navigation.querySelectorAll("a"));
+  const panels = Array.from(document.querySelectorAll(".page-panel"));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const content = document.getElementById("contenido");
+  document.documentElement.classList.add("has-js");
+  navigation.setAttribute("role", "tablist");
 
-  if (identity && animationToggle) {
-    animationToggle.addEventListener("click", function () {
-      const paused = identity.classList.toggle("is-paused");
-      animationToggle.setAttribute("aria-pressed", String(paused));
-      animationToggle.textContent = paused ? "Reanudar animación" : "Pausar animación";
-    });
+  links.forEach(function (link) {
+    const id = link.hash.slice(1);
+    link.setAttribute("role", "tab");
+    link.setAttribute("aria-controls", id);
+    document.getElementById(id).setAttribute("role", "tabpanel");
+    document.getElementById(id).setAttribute("aria-labelledby", link.id);
+  });
 
-    identity.addEventListener("pointermove", function (event) {
-      if (reducedMotion.matches || identity.classList.contains("is-paused") || event.pointerType !== "mouse") return;
-      const rect = identity.getBoundingClientRect();
-      identity.style.setProperty("--tilt-x", ((0.5 - (event.clientY - rect.top) / rect.height) * 8) + "deg");
-      identity.style.setProperty("--tilt-y", (((event.clientX - rect.left) / rect.width - 0.5) * 8) + "deg");
-    });
-    identity.addEventListener("pointerleave", function () {
-      identity.style.removeProperty("--tilt-x");
-      identity.style.removeProperty("--tilt-y");
-    });
+  function validPanel(id) {
+    return panels.some(function (panel) { return panel.id === id; });
+  }
 
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        identity.classList.toggle("is-offscreen", !entries[0].isIntersecting);
-      }).observe(identity);
+  function activate(id, options) {
+    if (!validPanel(id)) id = "sobre";
+    panels.forEach(function (panel) { panel.hidden = panel.id !== id; });
+    links.forEach(function (link) {
+      const selected = link.hash === "#" + id;
+      link.setAttribute("aria-selected", String(selected));
+      link.tabIndex = selected ? 0 : -1;
+    });
+    document.title = document.getElementById("heading-" + id).textContent + " · Adrián Cando Oviedo";
+    if (options && options.history && window.location.hash !== "#" + id) {
+      window.history.pushState(null, "", "#" + id);
+    }
+    if (options && options.scroll) {
+      const top = content.getBoundingClientRect().top + window.scrollY - 20;
+      if (window.scrollY > top || window.innerWidth <= 940) {
+        window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion.matches ? "auto" : "smooth" });
+      }
+    }
+    if (options && options.focusHeading) {
+      document.getElementById("heading-" + id).focus({ preventScroll: true });
     }
   }
 
-  updateActiveSection();
+  links.forEach(function (link, index) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      activate(link.hash.slice(1), { history: true, scroll: true });
+    });
+    link.addEventListener("keydown", function (event) {
+      let next;
+      if (event.key === "ArrowRight") next = (index + 1) % links.length;
+      if (event.key === "ArrowLeft") next = (index - 1 + links.length) % links.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = links.length - 1;
+      if (event.key === " ") {
+        event.preventDefault();
+        activate(link.hash.slice(1), { history: true, scroll: true });
+      }
+      if (next !== undefined) {
+        event.preventDefault();
+        links[next].focus();
+        activate(links[next].hash.slice(1), { history: true });
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-open-panel]").forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      activate(link.hash.slice(1), { history: true, scroll: true, focusHeading: true });
+    });
+  });
+  window.addEventListener("popstate", function () { activate(window.location.hash.slice(1)); });
+  window.addEventListener("hashchange", function () { activate(window.location.hash.slice(1)); });
+  activate(window.location.hash.slice(1));
+
+  const profileToggle = document.querySelector(".profile-toggle");
+  const profileContacts = document.getElementById("profile-contacts");
+  const compactProfile = window.matchMedia("(max-width: 600px)");
+  let profileExpanded = false;
+  function syncProfile() {
+    profileContacts.hidden = compactProfile.matches && !profileExpanded;
+    profileToggle.setAttribute("aria-expanded", String(!profileContacts.hidden));
+    profileToggle.textContent = profileContacts.hidden ? "Mostrar contacto" : "Ocultar contacto";
+  }
+  profileToggle.addEventListener("click", function () { profileExpanded = !profileExpanded; syncProfile(); });
+  compactProfile.addEventListener("change", syncProfile);
+  syncProfile();
+
+  document.querySelectorAll("[data-experience-start]").forEach(function (element) {
+    const start = element.dataset.experienceStart.split("-").map(Number);
+    const now = new Date();
+    const years = now.getFullYear() - start[0] - (now.getMonth() + 1 < start[1] ? 1 : 0);
+    element.textContent = Math.max(0, years) + "+";
+  });
+  document.querySelector("[data-year]").textContent = new Date().getFullYear();
+
+  const dialog = document.querySelector(".project-dialog");
+  document.querySelectorAll(".project-preview").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const image = button.querySelector("img");
+      const title = button.closest("figure").querySelector("h3").textContent;
+      dialog.querySelector("img").src = image.src;
+      dialog.querySelector("img").alt = image.alt;
+      dialog.querySelector("h2").textContent = title;
+      dialog.showModal();
+    });
+  });
+  dialog.querySelector(".dialog-close").addEventListener("click", function () { dialog.close(); });
+  dialog.addEventListener("click", function (event) {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
 })();
