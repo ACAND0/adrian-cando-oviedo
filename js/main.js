@@ -21,7 +21,7 @@
       window.history.replaceState(null, "", "#solucion-" + id);
     }
     if (options && options.announce) {
-      solutionStatus.textContent = "Enfoque seleccionado: " + document.getElementById("map-heading-" + id).textContent;
+      solutionStatus.textContent = "Área de experiencia: " + document.getElementById("map-heading-" + id).textContent;
     }
   }
 

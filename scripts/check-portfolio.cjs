@@ -15,7 +15,10 @@ async function main() {
     const response = await page.goto(url);
     if (url.startsWith("http")) assert.equal(response.status(), 200);
     assert.match(await page.title(), /Senior Documentum Consultant/);
-    assert.equal(await page.locator(".case-study").count(), 3);
+    assert.equal(await page.locator(".case-study").count(), 5);
+    assert.equal(await page.locator(".case-study").first().getAttribute("id"), "caso-minsait");
+    assert.match(await page.locator("#caso-minsait").innerText(), /JavaFX/);
+    assert.match(await page.locator("#caso-minsait").innerText(), /DFCs/);
     assert.equal(await page.locator(".career-item").count(), 6);
     assert.equal(await page.locator(".earlier-grid article").count(), 3);
     assert.equal(await page.locator(".project-card").count(), 4);
@@ -43,6 +46,14 @@ async function main() {
     await page.goBack();
     assert.equal(await page.locator(".map-panel:not([hidden])").getAttribute("id"), "solucion-migrar");
 
+    await page.goto(url + "#solucion-herramientas");
+    await page.locator("#solucion-herramientas .text-link").click();
+    assert.equal(await page.locator("#caso-minsait details").evaluate(element => element.open), true);
+    await page.locator("#caso-minsait details .text-link").click();
+    assert.equal(await page.locator("#trayectoria-minsait details").evaluate(element => element.open), true);
+    assert.match(await page.locator("#trayectoria-minsait .details-body").innerText(), /JavaFX/);
+    await page.goto(url + "#caso-repsol");
+    assert.equal(await page.locator("#caso-repsol details").evaluate(element => element.open), true);
     await page.goto(url + "#solucion-integrar");
     assert.equal(await page.locator(".map-panel:not([hidden])").getAttribute("id"), "solucion-integrar");
     await page.locator("#solucion-integrar .text-link").click();

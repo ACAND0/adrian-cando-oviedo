@@ -6,13 +6,17 @@ migraciones ECM, integraciones y automatización empresarial.
 ## Diseño y contenido
 
 Un único diseño carbón con acento dorado, composición editorial y página
-continua. La portada presenta nombre, cargo, propuesta de valor y enlaces
-directos a proyectos y contacto.
+continua. El contenido presenta un perfil profesional, su especialización y
+su trayectoria, sin plantearse como un catálogo de servicios. La portada
+presenta nombre, cargo y enlaces directos al trabajo y al contacto profesional.
 
-- El mapa ECM relaciona cuatro necesidades con un enfoque, tecnologías y una
-  referencia a trayectoria, caso profesional o demostración.
-- Los casos de ADIF, Ferrovial y ACCIONA resumen exclusivamente la información
-  de la trayectoria existente. No se añaden métricas ni resultados no facilitados.
+- El mapa ECM relaciona cuatro áreas de experiencia con trabajo documentado,
+  tecnologías y referencias a casos o etapas profesionales.
+- Los cinco casos de Minsait, Repsol, ADIF, Ferrovial y ACCIONA recogen la
+  información de la trayectoria y las aportaciones facilitadas por el autor.
+  Minsait destaca el trabajo actual en herramientas internas con JavaFX y DFCs
+  para automatización y operativa técnica. No se añaden métricas ni resultados
+  no facilitados.
 - Las recreaciones de aplicaciones se presentan por separado, como material
   ilustrativo con datos ficticios.
 - Se conservan las seis etapas profesionales principales, las tres anteriores,
