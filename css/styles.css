@@ -84,6 +84,7 @@ strong { font-weight: 600; color: var(--text); }
 .skill-config > svg { display: block; width: 72px; height: 72px; }
 .skill-art .skill-config > img { width: 64px; height: 64px; transform: none; }
 .skill-grid span { color: var(--muted); font-size: 10px; white-space: nowrap; }
+.skill-grid .skill-expansion { display: block; color: var(--soft); font-size: 10px; line-height: 1.5; margin-top: 5px; }
 .skill-tags, .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .skill-tags { margin-top: 22px; }
 .skill-tags span, .tag-list span { background: #29292b; color: #bdbdc2; font-size: 10px; line-height: 1.6; padding: 5px 10px; border-radius: 6px; }
