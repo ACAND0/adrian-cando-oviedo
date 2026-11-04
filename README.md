@@ -1,49 +1,91 @@
 # Portfolio de Adrián Cando Oviedo
 
-Portfolio estático en español, con un único diseño oscuro inspirado en la
-composición de https://aakashrajbanshi.com.np/: tarjeta de perfil lateral,
-panel principal con pestañas y acentos dorados. La identidad, el contenido
-profesional y los gráficos pertenecen a este portfolio; no se utilizan fotos,
-certificados ni textos del sitio de referencia.
+Portfolio estático de ingeniería documental: Documentum, Java, DFCs, JavaFX,
+migraciones ECM, integraciones y automatización empresarial.
 
-## Estructura
+## Diseño y contenido
 
-- `index.html`: perfil, experiencia, soluciones, formación y contacto.
-- `css/styles.css`: diseño único responsive y estilos de impresión.
-- `js/main.js`: pestañas accesibles, navegación por URL, datos de contacto en móvil y ampliación de imágenes.
-- `assets/app-examples/`: recreaciones anonimizadas con datos ficticios.
-- `assets/adrian-cando-profile.png`: fotografía original conservada.
-- `assets/adrian-cando-cutout.png`: versión con fondo transparente, sin máscara ni halo CSS. El fondo gris cálido se aplica al contenedor HTML; la foto permanece intacta.
-- `assets/technologies/`: originales conservados y copias con fondo transparente de D2, JavaFX y PowerShell. Se muestran con `object-fit: contain`, sin recuadros claros. REST conserva su archivo original y se presenta en blanco mediante CSS. DFCs tiene un icono vectorial propio de documentos y código, con la paleta azul de Documentum y D2. D2-Config reutiliza la imagen de D2 dentro de un engranaje SVG independiente.
-- `assets/og-profile.png`: miniatura para compartir, de 1200 x 630.
-- `assets/brand/artwork.html`: originales de la miniatura y del favicon.
-- `scripts/build-brand.cjs`: exportación de miniatura e iconos con Playwright.
+Un único diseño carbón con acento dorado, composición editorial y página
+continua. La portada presenta nombre, cargo, propuesta de valor y enlaces
+directos a proyectos y contacto.
 
-## Uso
+- El mapa ECM relaciona cuatro necesidades con un enfoque, tecnologías y una
+  referencia a trayectoria, caso profesional o demostración.
+- Los casos de ADIF, Ferrovial y ACCIONA resumen exclusivamente la información
+  de la trayectoria existente. No se añaden métricas ni resultados no facilitados.
+- Las recreaciones de aplicaciones se presentan por separado, como material
+  ilustrativo con datos ficticios.
+- Se conservan las seis etapas profesionales principales, las tres anteriores,
+  la formación académica y las certificaciones.
+- Los detalles se amplían con controles nativos `details/summary`.
+- La fotografía y su fondo CSS, los colores de los logos, el logotipo completo
+  de DFCs y el engranaje de D2-Config se mantienen.
+
+## Archivos
+
+- `index.html`: contenido completo y metadatos.
+- `css/styles.css`: composición responsive, foco, movimiento reducido e impresión.
+- `js/main.js`: mapa accesible, enlaces directos, navegación activa y diálogo de imágenes.
+- `assets/optimized/`: versiones WebP dimensionadas; retrato y logos con transparencia y compresión sin pérdida.
+- `assets/adrian-cando-cutout.png`, `assets/technologies/` y
+  `assets/app-examples/`: originales conservados para futuras exportaciones.
+- `scripts/optimize-assets.cjs`: exportación mecánica de versiones responsive,
+  sin retoque ni regeneración de imágenes.
+- `scripts/check-portfolio.cjs`: comprobaciones de navegador y capturas de escritorio/móvil.
+- `assets/og-profile.png`: miniatura de 1200 x 630 para compartir.
+
+## Funcionamiento
 
 Abrir `index.html` o servir la carpeta con un servidor HTTP estático.
-No hay framework, dependencias de ejecución ni compilación. La tipografía
-Manrope se carga de Google Fonts y dispone de una fuente de respaldo.
+No hay framework, compilación ni dependencias de ejecución. Manrope se carga de
+Google Fonts y dispone de fuente de respaldo.
 
-Las pestañas admiten flechas, Inicio, Fin, Enter y Espacio. Sus enlaces
-permiten abrir directamente `#sobre`, `#experiencia`, `#soluciones`,
-`#formacion` y `#contacto`, y utilizar Atrás y Adelante del navegador.
-Sin JavaScript, todos los apartados permanecen visibles.
-Las imágenes se amplían en un diálogo que puede cerrarse con Escape.
-El diseño respeta la preferencia de movimiento reducido.
+La navegación utiliza anclas normales: `#sobre`, `#soluciones`, `#casos`,
+`#aplicaciones`, `#experiencia`, `#tecnologias`, `#formacion` y `#contacto`.
+Los enlaces anteriores `#inicio` y `#perfil` mantienen compatibilidad con JavaScript.
 
-No hay selector ni preferencias de temas. Los valores antiguos de
-`portfolio-theme` no se consultan.
+El mapa admite Tab, flechas, Inicio y Fin. Solo el selector activo forma parte
+del recorrido de Tab y cada panel tiene su etiqueta accesible. Las selecciones
+se pueden compartir con `#solucion-migrar`, `#solucion-automatizar`,
+`#solucion-herramientas` y `#solucion-integrar`.
 
-## Identidad visual
+Los enlaces a casos y etapas abren su detalle correspondiente. El diálogo de
+ejemplos se cierra con Escape y devuelve el foco al botón de origen.
+Sin JavaScript, los cuatro enfoques y toda la página permanecen disponibles.
+La preferencia de movimiento reducido desactiva las transiciones.
 
-Para regenerar los iconos y la miniatura, instalar Playwright y Chromium
-en el entorno de desarrollo y ejecutar `node scripts/build-brand.cjs`.
-Se puede indicar un navegador instalado mediante `CHROME_PATH`.
-El favicon ICO incluye tamaños de 16, 32, 48 y 256 píxeles.
+No se utiliza un selector de temas ni se leen preferencias antiguas.
+
+## Desarrollo y comprobación
+
+Los scripts requieren Node.js y herramientas de desarrollo externas al sitio:
+Playwright para las pruebas y Sharp para exportar imágenes.
+
+```sh
+node scripts/optimize-assets.cjs
+node scripts/check-portfolio.cjs
+node scripts/check-portfolio.cjs https://acand0.github.io/adrian-cando-oviedo/
+```
+
+Se puede indicar un Chrome instalado mediante `CHROME_PATH`. Las capturas de
+prueba se guardan en `outputs/portfolio-desktop.png` y
+`outputs/portfolio-mobile.png` (no se incluyen en Git).
+
+Las comprobaciones cubren el mapa, teclado, URLs e historial, aperturas de
+detalles, diálogo y retorno de foco, nueve anchuras de pantalla, movimiento
+reducido, funcionamiento sin JavaScript, IDs y enlaces internos.
+
+El retrato conserva el original de aproximadamente 1,3 MB y utiliza versiones
+de 320, 384 y 640 píxeles (aproximadamente 62, 84 y 224 KB).
+Los seis logos rasterizados servidos pesan entre 2 y 12 KB por archivo.
+Los ejemplos usan miniaturas WebP de 480/960 píxeles y carga diferida; la imagen
+original ampliada solo se solicita al abrir el diálogo.
 
 ## Publicación
 
-GitHub Pages sirve la raíz de la rama `portfolio-profile`:
+GitHub Pages sirve la raíz de `portfolio-profile`:
 https://acand0.github.io/adrian-cando-oviedo/
 Un push a esa rama activa el despliegue de Pages.
+
+La miniatura y los favicons se pueden regenerar desde
+`assets/brand/artwork.html` mediante `node scripts/build-brand.cjs`.

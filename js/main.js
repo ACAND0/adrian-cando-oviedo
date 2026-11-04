@@ -1,94 +1,92 @@
 (function () {
   "use strict";
 
-  const navigation = document.querySelector(".page-nav");
-  const links = Array.from(navigation.querySelectorAll("a"));
-  const panels = Array.from(document.querySelectorAll(".page-panel"));
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const content = document.getElementById("contenido");
-  document.documentElement.classList.add("has-js");
-  navigation.setAttribute("role", "tablist");
+  const solutionButtons = Array.from(document.querySelectorAll("[data-solution]"));
+  const solutionPanels = Array.from(document.querySelectorAll(".map-panel"));
+  const solutionControls = document.querySelector(".map-controls");
+  const solutionStatus = document.getElementById("map-status");
 
-  links.forEach(function (link) {
-    const id = link.hash.slice(1);
-    link.setAttribute("role", "tab");
-    link.setAttribute("aria-controls", id);
-    document.getElementById(id).setAttribute("role", "tabpanel");
-    document.getElementById(id).setAttribute("aria-labelledby", link.id);
-  });
-
-  function validPanel(id) {
-    return panels.some(function (panel) { return panel.id === id; });
-  }
-
-  function activate(id, options) {
-    if (!validPanel(id)) id = "sobre";
-    panels.forEach(function (panel) { panel.hidden = panel.id !== id; });
-    links.forEach(function (link) {
-      const selected = link.hash === "#" + id;
-      link.setAttribute("aria-selected", String(selected));
-      link.tabIndex = selected ? 0 : -1;
+  function selectSolution(id, options) {
+    const button = solutionButtons.find(function (item) { return item.dataset.solution === id; });
+    if (!button) return;
+    solutionButtons.forEach(function (item) {
+      const selected = item === button;
+      item.setAttribute("aria-selected", String(selected));
+      item.tabIndex = selected ? 0 : -1;
     });
-    document.title = document.getElementById("heading-" + id).textContent + " · Adrián Cando Oviedo";
-    if (options && options.history && window.location.hash !== "#" + id) {
-      window.history.pushState(null, "", "#" + id);
+    solutionPanels.forEach(function (panel) {
+      panel.hidden = panel.id !== "solucion-" + id;
+    });
+    if (options && options.updateURL) {
+      window.history.replaceState(null, "", "#solucion-" + id);
     }
-    if (options && options.scroll) {
-      const top = content.getBoundingClientRect().top + window.scrollY - 20;
-      if (window.scrollY > top || window.innerWidth <= 940) {
-        window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion.matches ? "auto" : "smooth" });
-      }
-    }
-    if (options && options.focusHeading) {
-      document.getElementById("heading-" + id).focus({ preventScroll: true });
+    if (options && options.announce) {
+      solutionStatus.textContent = "Enfoque seleccionado: " + document.getElementById("map-heading-" + id).textContent;
     }
   }
 
-  links.forEach(function (link, index) {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      activate(link.hash.slice(1), { history: true, scroll: true });
+  solutionControls.setAttribute("role", "tablist");
+  solutionButtons.forEach(function (button, index) {
+    button.setAttribute("role", "tab");
+    const panel = document.getElementById(button.getAttribute("aria-controls"));
+    panel.setAttribute("role", "tabpanel");
+    panel.setAttribute("aria-labelledby", button.id);
+    panel.tabIndex = 0;
+    button.addEventListener("click", function () {
+      selectSolution(button.dataset.solution, { updateURL: true, announce: true });
     });
-    link.addEventListener("keydown", function (event) {
+    button.addEventListener("keydown", function (event) {
       let next;
-      if (event.key === "ArrowRight") next = (index + 1) % links.length;
-      if (event.key === "ArrowLeft") next = (index - 1 + links.length) % links.length;
+      if (event.key === "ArrowDown" || event.key === "ArrowRight") next = (index + 1) % solutionButtons.length;
+      if (event.key === "ArrowUp" || event.key === "ArrowLeft") next = (index - 1 + solutionButtons.length) % solutionButtons.length;
       if (event.key === "Home") next = 0;
-      if (event.key === "End") next = links.length - 1;
-      if (event.key === " ") {
-        event.preventDefault();
-        activate(link.hash.slice(1), { history: true, scroll: true });
-      }
+      if (event.key === "End") next = solutionButtons.length - 1;
       if (next !== undefined) {
         event.preventDefault();
-        links[next].focus();
-        activate(links[next].hash.slice(1), { history: true });
+        solutionButtons[next].focus();
+        selectSolution(solutionButtons[next].dataset.solution, { updateURL: true, announce: true });
       }
     });
   });
 
-  document.querySelectorAll("[data-open-panel]").forEach(function (link) {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      activate(link.hash.slice(1), { history: true, scroll: true, focusHeading: true });
+  function readHash() {
+    try { return decodeURIComponent(window.location.hash.slice(1)); }
+    catch (_) { return ""; }
+  }
+
+  function revealHashTarget() {
+    let id = readHash();
+    const aliases = { inicio: "sobre", perfil: "contacto" };
+    const aliased = Boolean(aliases[id]);
+    if (aliases[id]) {
+      id = aliases[id];
+      window.history.replaceState(null, "", "#" + id);
+    }
+    if (id.startsWith("solucion-")) selectSolution(id.slice(9));
+    const target = document.getElementById(id);
+    if (!target) return;
+    if (aliased) window.requestAnimationFrame(function () { target.scrollIntoView({ block: "start", behavior: "auto" }); });
+    const parentDetails = target.closest("details");
+    if (parentDetails) parentDetails.open = true;
+    const caseDetails = target.querySelector("[data-case-details], .career-copy > details");
+    if (caseDetails) caseDetails.open = true;
+  }
+
+  selectSolution("migrar");
+  document.documentElement.classList.add("has-js");
+  revealHashTarget();
+  window.addEventListener("hashchange", revealHashTarget);
+  window.addEventListener("popstate", revealHashTarget);
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      const id = link.hash.slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      if (id.startsWith("solucion-")) selectSolution(id.slice(9));
+      const details = target.querySelector("[data-case-details], .career-copy > details");
+      if (details) details.open = true;
     });
   });
-  window.addEventListener("popstate", function () { activate(window.location.hash.slice(1)); });
-  window.addEventListener("hashchange", function () { activate(window.location.hash.slice(1)); });
-  activate(window.location.hash.slice(1));
-
-  const profileToggle = document.querySelector(".profile-toggle");
-  const profileContacts = document.getElementById("profile-contacts");
-  const compactProfile = window.matchMedia("(max-width: 600px)");
-  let profileExpanded = false;
-  function syncProfile() {
-    profileContacts.hidden = compactProfile.matches && !profileExpanded;
-    profileToggle.setAttribute("aria-expanded", String(!profileContacts.hidden));
-    profileToggle.textContent = profileContacts.hidden ? "Mostrar contacto" : "Ocultar contacto";
-  }
-  profileToggle.addEventListener("click", function () { profileExpanded = !profileExpanded; syncProfile(); });
-  compactProfile.addEventListener("change", syncProfile);
-  syncProfile();
 
   document.querySelectorAll("[data-experience-start]").forEach(function (element) {
     const start = element.dataset.experienceStart.split("-").map(Number);
@@ -98,14 +96,45 @@
   });
   document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
+  const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
+  const navTargets = navLinks.map(function (link) { return document.getElementById(link.hash.slice(1)); });
+  const header = document.querySelector(".site-header");
+  let scrollScheduled = false;
+  function updateNavigation() {
+    let active = -1;
+    navTargets.forEach(function (target, index) {
+      if (target.getBoundingClientRect().top <= header.offsetHeight + 120) active = index;
+    });
+    navLinks.forEach(function (link, index) {
+      if (index === active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+    scrollScheduled = false;
+  }
+  function scheduleNavigation() {
+    if (scrollScheduled) return;
+    scrollScheduled = true;
+    window.requestAnimationFrame(updateNavigation);
+  }
+  window.addEventListener("scroll", scheduleNavigation, { passive: true });
+  window.addEventListener("resize", scheduleNavigation);
+  document.querySelectorAll("details").forEach(function (details) {
+    details.addEventListener("toggle", scheduleNavigation);
+  });
+  updateNavigation();
+
   const dialog = document.querySelector(".project-dialog");
-  document.querySelectorAll(".project-preview").forEach(function (button) {
+  const dialogImage = dialog.querySelector("img");
+  document.querySelectorAll("[data-full-image]").forEach(function (button) {
     button.addEventListener("click", function () {
+      if (typeof dialog.showModal !== "function") {
+        window.open(button.dataset.fullImage, "_blank", "noopener");
+        return;
+      }
       const image = button.querySelector("img");
-      const title = button.closest("figure").querySelector("h3").textContent;
-      dialog.querySelector("img").src = image.src;
-      dialog.querySelector("img").alt = image.alt;
-      dialog.querySelector("h2").textContent = title;
+      dialogImage.src = button.dataset.fullImage;
+      dialogImage.alt = image.alt;
+      dialog.querySelector("h2").textContent = button.closest("figure").querySelector("h3").textContent;
       dialog.showModal();
     });
   });
@@ -114,5 +143,18 @@
     if (event.target !== dialog) return;
     const rect = dialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+
+  window.addEventListener("beforeprint", function () {
+    document.querySelectorAll("details").forEach(function (details) {
+      details.dataset.printOpen = String(details.open);
+      details.open = true;
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    document.querySelectorAll("details[data-print-open]").forEach(function (details) {
+      details.open = details.dataset.printOpen === "true";
+      delete details.dataset.printOpen;
+    });
   });
 })();
