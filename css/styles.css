@@ -84,7 +84,7 @@ strong { font-weight: 600; color: var(--text); }
 .skill-config > svg { display: block; width: 72px; height: 72px; }
 .skill-art .skill-config > img { width: 64px; height: 64px; transform: none; }
 .skill-grid span { color: var(--muted); font-size: 10px; white-space: nowrap; }
-.skill-grid .skill-expansion { display: block; color: var(--soft); font-size: 10px; line-height: 1.5; margin-top: 5px; }
+.skill-art .logo-dfc { width: 164px; max-width: calc(100% - 12px); height: 64px; }
 .skill-tags, .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .skill-tags { margin-top: 22px; }
 .skill-tags span, .tag-list span { background: #29292b; color: #bdbdc2; font-size: 10px; line-height: 1.6; padding: 5px 10px; border-radius: 6px; }
@@ -217,7 +217,7 @@ strong { font-weight: 600; color: var(--text); }
   .service-card { padding: 22px; }
   .service-card > .icon { width: 32px; height: 32px; }
   .service-card h3 { font-size: 15px; }
-  .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+  .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
   .skill-art img { width: 56px; height: 56px; }
   .skill-config, .skill-config > svg { width: 64px; height: 64px; }
   .skill-art .skill-config > img { width: 56px; height: 56px; }
