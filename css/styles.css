@@ -79,7 +79,10 @@ strong { font-weight: 600; color: var(--text); }
 .skill-art img { display: block; width: 64px; height: 64px; object-fit: contain; }
 .skill-art .logo-rest { filter: brightness(0) invert(1); }
 .skill-art img[src$="d2-transparent.png"] { transform: scale(1.2); }
-.skill-wordmark { color: var(--muted); font-size: 15px; font-weight: 600; }
+.skill-config { display: grid; place-items: center; width: 72px; height: 72px; }
+.skill-config > svg, .skill-config > img { grid-area: 1 / 1; }
+.skill-config > svg { display: block; width: 72px; height: 72px; }
+.skill-art .skill-config > img { width: 64px; height: 64px; transform: none; }
 .skill-grid span { color: var(--muted); font-size: 10px; white-space: nowrap; }
 .skill-tags, .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .skill-tags { margin-top: 22px; }
@@ -215,7 +218,8 @@ strong { font-weight: 600; color: var(--text); }
   .service-card h3 { font-size: 15px; }
   .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
   .skill-art img { width: 56px; height: 56px; }
-  .skill-wordmark { font-size: 12px; }
+  .skill-config, .skill-config > svg { width: 64px; height: 64px; }
+  .skill-art .skill-config > img { width: 56px; height: 56px; }
   .skill-grid span { font-size: 10px; }
   .section-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   .value-list { grid-template-columns: 1fr; gap: 10px; }
